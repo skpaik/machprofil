@@ -1,0 +1,18 @@
+# Menu
+
+show:
+  - Experience
+  - Projects
+  - Blog
+  - Resume
+
+optional:
+  - Education
+  - Skills
+  - Achievements
+  - Blog
+  - Contact
+
+hide:
+  - Testimonials
+  - Gallery
