@@ -1,0 +1,531 @@
+{
+  "assets": {},
+  "config": {},
+  "de": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {},
+        "content": "# Why I Built My Portfolio with GoribProfile\n\nBuilding my portfolio used to mean juggling frameworks and CMSs.\nNow I simply edit Markdown files and deploy to GitHub Pages — no backend needed!"
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {},
+        "content": "# Cityscapes\n\nA few shots from my Berlin photo walk 📸\n![Berlin Tower](https://placehold.co/600x400?text=Berlin+Tower)\n![City Street](https://placehold.co/600x400?text=City+Street)"
+      }
+    ],
+    "info": {
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 0,
+          "frontmatter": {},
+          "content": "## About Me\n\nI’m a software engineer with 5+ years of experience creating cloud-native web applications.\nI love building tools that empower other developers and creators."
+        }
+      ],
+      "contact": [
+        {
+          "slug": "contact",
+          "order": 0,
+          "frontmatter": {},
+          "content": "## Contact Me\n\n- 📧 **Email:** john@example.com\n- 💼 **LinkedIn:** [linkedin.com/in/johndoe](https://linkedin.com/in/johndoe)\n- 🧑‍💻 **GitHub:** [github.com/johndoe](https://github.com/johndoe)"
+        }
+      ],
+      "summary": [
+        {
+          "slug": "summary",
+          "order": 0,
+          "frontmatter": {},
+          "content": "# 👋 Hi, I'm John Doe\n\nFull-stack developer passionate about building modern, scalable web applications using **Next.js**, **TypeScript**, and **AWS**."
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {},
+        "content": "# Project 1: Portfolio Website\n\nA personal website built with **GoribProfile** and **Next.js** to showcase my projects and skills.\n\n**Tech stack:** Next.js, Markdown, Tailwind CSS\n**Year:** 2025"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {},
+        "content": "# Project 2: Image Gallery\n\nA minimalist photo gallery with lightbox preview and multilingual support.\n**Tech stack:** React, Next.js, Cloudinary"
+      }
+    ],
+    "resume": [
+      {
+        "slug": "details",
+        "order": 0,
+        "frontmatter": {},
+        "content": "# John Doe\n**Full-stack Developer**\n\n## Experience\n- **Senior Software Engineer** at ExampleCorp (2022–Present)\n- **Frontend Developer** at WebStudio (2019–2022)\n\n## Skills\nJavaScript, TypeScript, React, Next.js, AWS\n\n## Education\nB.Sc. in Computer Science — Berlin University"
+      }
+    ]
+  },
+  "en": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {
+          "title": "Getting Started with Next.js 15",
+          "date": "2024-03-01T00:00:00.000Z",
+          "author": "John Doe",
+          "tags": [
+            "Next.js",
+            "React",
+            "Tutorial"
+          ],
+          "order": 1
+        },
+        "content": "# Getting Started with Next.js 15\n\nNext.js 15 brings exciting new features and improvements. In this post, we'll explore the key updates and how to get started.\n\n## What's New\n\n- Improved App Router\n- Enhanced performance\n- Better TypeScript support\n\n## Installation\n\n\\`\\`\\`bash\nnpx create-next-app@latest my-app\n\\`\\`\\`\n\nStart building amazing applications today!"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {
+          "title": "Building Scalable React Applications",
+          "date": "2024-03-15T00:00:00.000Z",
+          "author": "John Doe",
+          "tags": [
+            "React",
+            "Architecture",
+            "Best Practices"
+          ],
+          "order": 2
+        },
+        "content": "# Building Scalable React Applications\n\nLearn the best practices for building maintainable and scalable React applications.\n\n## Key Principles\n\n1. Component composition\n2. State management\n3. Code organization\n4. Performance optimization\n\n## Conclusion\n\nFollowing these principles will help you build better React applications."
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "frontmatter": {
+          "title": "My First Blog Post",
+          "date": "2024-01-15",
+          "author": "John Doe",
+          "excerpt": "A short summary",
+          "tags": [
+            "tech",
+            "javascript"
+          ],
+          "image": "/images/blog-cover.jpg",
+          "featured": true,
+          "readTime": 5,
+          "category": "Tutorial"
+        },
+        "content": "Blog post content..."
+      }
+    ],
+    "config": [
+      {
+        "slug": "menu",
+        "order": 0,
+        "frontmatter": {
+          "order": 1
+        },
+        "content": "# Navigation Menu\n\n- [Home](/)\n- [Info](/info)\n- [Projects](/projects)\n- [Blog](/blog)\n- [Gallery](/gallery)\n- [Resume](/resume)"
+      },
+      {
+        "slug": "profile",
+        "order": 0,
+        "frontmatter": {
+          "name": "John Doe",
+          "title": "Full Stack Developer",
+          "email": "john@example.com",
+          "github": "https://github.com/johndoe",
+          "linkedin": "https://linkedin.com/in/johndoe",
+          "twitter": "https://twitter.com/johndoe"
+        },
+        "content": "# Profile\n\nFull-stack developer passionate about building elegant solutions with modern web technologies."
+      },
+      {
+        "slug": "settings",
+        "order": 0,
+        "frontmatter": {
+          "template": "modern",
+          "defaultLanguage": "en",
+          "siteName": "GoribProfile Portfolio",
+          "siteDescription": "A markdown-powered portfolio and blog"
+        },
+        "content": "# Site Settings\n\nThis file controls the global settings for your GoribProfile site."
+      }
+    ],
+    "experience": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {
+          "title": "E-Commerce Platform",
+          "date": "2024-01-15T00:00:00.000Z",
+          "tags": [
+            "React",
+            "Next.js",
+            "Stripe"
+          ],
+          "featured": true,
+          "order": 1
+        },
+        "content": "# E-Commerce Platform\n\nA full-featured e-commerce platform built with Next.js and Stripe integration.\n\n## Features\n\n- Product catalog with search and filters\n- Shopping cart and checkout\n- Payment processing with Stripe\n- Admin dashboard\n\n## Tech Stack\n\n- Next.js 15\n- TypeScript\n- Tailwind CSS\n- Stripe API"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {
+          "title": "Task Management App",
+          "date": "2024-02-20T00:00:00.000Z",
+          "tags": [
+            "React",
+            "TypeScript",
+            "Supabase"
+          ],
+          "featured": false,
+          "order": 2
+        },
+        "content": "# Task Management App\n\nA collaborative task management application with real-time updates.\n\n## Features\n\n- Create and organize tasks\n- Team collaboration\n- Real-time synchronization\n- File attachments\n\n## Tech Stack\n\n- React\n- TypeScript\n- Supabase\n- Tailwind CSS"
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "frontmatter": {
+          "title": "Senior Developer",
+          "company": "Tech Corp",
+          "location": "Berlin, Germany",
+          "startDate": "2020-01-01",
+          "endDate": "2024-01-01",
+          "description": "Led development team",
+          "logo": "/images/company-logo.png",
+          "website": "https://company.com",
+          "technologies": [
+            "Node.js",
+            "React"
+          ],
+          "current": false
+        },
+        "content": "Detailed experience description..."
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {
+          "title": "Web Design Showcase",
+          "date": "2024-01-10T00:00:00.000Z",
+          "order": 1
+        },
+        "content": "# Web Design Showcase\n\nA collection of my recent web design projects.\n\n![Project Screenshot](/placeholder.svg?height=400&width=600&query=modern+web+design+dashboard)\n\n*Modern dashboard interface with clean design*"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {
+          "title": "UI Components Library",
+          "date": "2024-02-05T00:00:00.000Z",
+          "order": 2
+        },
+        "content": "# UI Components Library\n\nCustom UI components built with React and Tailwind CSS.\n\n![Component Library](/placeholder.svg?height=400&width=600&query=ui+component+library+showcase)\n\n*Reusable component library with consistent design*"
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "frontmatter": {
+          "title": "Beautiful Sunset",
+          "image": "/images/gallery/sunset.jpg",
+          "category": "Nature",
+          "description": "Taken in Swiss Alps",
+          "date": "2024-01-15",
+          "tags": [
+            "landscape",
+            "mountains"
+          ],
+          "featured": false
+        },
+        "content": "Optional detailed description..."
+      }
+    ],
+    "info": {
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 0,
+          "frontmatter": {
+            "title": "About Me",
+            "order": 2
+          },
+          "content": "# About Me\n\nWith over 5 years of experience in web development, I specialize in building scalable applications using React, Next.js, and TypeScript. I'm passionate about clean code, user experience, and continuous learning.\n\n## Skills\n\n- Frontend: React, Next.js, TypeScript, Tailwind CSS\n- Backend: Node.js, Python, PostgreSQL\n- Tools: Git, Docker, AWS"
+        }
+      ],
+      "contact": [
+        {
+          "slug": "contact",
+          "order": 0,
+          "frontmatter": {
+            "title": "Contact",
+            "order": 3
+          },
+          "content": "# Get In Touch\n\nFeel free to reach out for collaborations or just a friendly chat.\n\n**Email:** john@example.com\n\n**Location:** San Francisco, CA"
+        }
+      ],
+      "summary": [
+        {
+          "slug": "summary",
+          "order": 0,
+          "frontmatter": {
+            "title": "Welcome",
+            "order": 1
+          },
+          "content": "# Welcome to My Portfolio\n\nI'm a passionate developer creating innovative solutions with modern web technologies. Explore my projects, read my blog, and get in touch!"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {
+          "title": "E-Commerce Platform",
+          "date": "2024-01-15T00:00:00.000Z",
+          "tags": [
+            "React",
+            "Next.js",
+            "Stripe"
+          ],
+          "featured": true,
+          "order": 1
+        },
+        "content": "# E-Commerce Platform\n\nA full-featured e-commerce platform built with Next.js and Stripe integration.\n\n## Features\n\n- Product catalog with search and filters\n- Shopping cart and checkout\n- Payment processing with Stripe\n- Admin dashboard\n\n## Tech Stack\n\n- Next.js 15\n- TypeScript\n- Tailwind CSS\n- Stripe API"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {
+          "title": "Task Management App",
+          "date": "2024-02-20T00:00:00.000Z",
+          "tags": [
+            "React",
+            "TypeScript",
+            "Supabase"
+          ],
+          "featured": false,
+          "order": 2
+        },
+        "content": "# Task Management App\n\nA collaborative task management application with real-time updates.\n\n## Features\n\n- Create and organize tasks\n- Team collaboration\n- Real-time synchronization\n- File attachments\n\n## Tech Stack\n\n- React\n- TypeScript\n- Supabase\n- Tailwind CSS"
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "frontmatter": {
+          "title": "My Amazing Project",
+          "description": "Brief project overview",
+          "technologies": [
+            "React",
+            "TypeScript"
+          ],
+          "image": "/images/project.jpg",
+          "link": "https://example.com",
+          "github": "https://github.com/user/repo",
+          "date": "2024-01-15",
+          "status": "completed",
+          "featured": true
+        },
+        "content": "Project content here..."
+      }
+    ],
+    "resume": [
+      {
+        "slug": "details",
+        "order": 0,
+        "frontmatter": {
+          "name": "John Doe",
+          "title": "Full Stack Developer",
+          "email": "john@example.com",
+          "phone": "+1 (555) 123-4567",
+          "location": "San Francisco, CA",
+          "website": "https://johndoe.dev"
+        },
+        "content": "# John Doe\n## Full Stack Developer\n\n### Experience\n\n**Senior Developer** - Tech Company Inc.\n*2022 - Present*\n\n- Led development of customer-facing web applications\n- Improved application performance by 40%\n- Mentored junior developers\n\n**Full Stack Developer** - Startup Co.\n*2019 - 2022*\n\n- Built scalable web applications using React and Node.js\n- Implemented CI/CD pipelines\n- Collaborated with design team on UX improvements\n\n### Education\n\n**Bachelor of Science in Computer Science**\nUniversity of California, Berkeley\n*2015 - 2019*\n\n### Skills\n\n- **Frontend:** React, Next.js, TypeScript, Tailwind CSS\n- **Backend:** Node.js, Python, PostgreSQL, MongoDB\n- **Tools:** Git, Docker, AWS, Vercel"
+      }
+    ]
+  },
+  "es": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {
+          "title": "Getting Started with Next.js 15",
+          "date": "2024-03-01T00:00:00.000Z",
+          "author": "John Doe",
+          "tags": [
+            "Next.js",
+            "React",
+            "Tutorial"
+          ],
+          "order": 1
+        },
+        "content": "# Getting Started with Next.js 15\n\nNext.js 15 brings exciting new features and improvements. In this post, we'll explore the key updates and how to get started.\n\n## What's New\n\n- Improved App Router\n- Enhanced performance\n- Better TypeScript support\n\n## Installation\n\n\\`\\`\\`bash\nnpx create-next-app@latest my-app\n\\`\\`\\`\n\nStart building amazing applications today!"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {
+          "title": "Building Scalable React Applications",
+          "date": "2024-03-15T00:00:00.000Z",
+          "author": "John Doe",
+          "tags": [
+            "React",
+            "Architecture",
+            "Best Practices"
+          ],
+          "order": 2
+        },
+        "content": "# Building Scalable React Applications\n\nLearn the best practices for building maintainable and scalable React applications.\n\n## Key Principles\n\n1. Component composition\n2. State management\n3. Code organization\n4. Performance optimization\n\n## Conclusion\n\nFollowing these principles will help you build better React applications."
+      }
+    ],
+    "config": [
+      {
+        "slug": "menu",
+        "order": 0,
+        "frontmatter": {
+          "order": 1
+        },
+        "content": "# Navigation Menu\n\n- [Home](/)\n- [Info](/info)\n- [Projects](/projects)\n- [Blog](/blog)\n- [Gallery](/gallery)\n- [Resume](/resume)"
+      },
+      {
+        "slug": "profile",
+        "order": 0,
+        "frontmatter": {
+          "name": "John Doe",
+          "title": "Full Stack Developer",
+          "email": "john@example.com",
+          "github": "https://github.com/johndoe",
+          "linkedin": "https://linkedin.com/in/johndoe",
+          "twitter": "https://twitter.com/johndoe"
+        },
+        "content": "# Profile\n\nFull-stack developer passionate about building elegant solutions with modern web technologies."
+      },
+      {
+        "slug": "settings",
+        "order": 0,
+        "frontmatter": {
+          "template": "modern",
+          "defaultLanguage": "en",
+          "siteName": "GoribProfile Portfolio",
+          "siteDescription": "A markdown-powered portfolio and blog"
+        },
+        "content": "# Site Settings\n\nThis file controls the global settings for your GoribProfile site."
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {
+          "title": "Web Design Showcase",
+          "date": "2024-01-10T00:00:00.000Z",
+          "order": 1
+        },
+        "content": "# Web Design Showcase\n\nA collection of my recent web design projects.\n\n![Project Screenshot](/placeholder.svg?height=400&width=600&query=modern+web+design+dashboard)\n\n*Modern dashboard interface with clean design*"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {
+          "title": "UI Components Library",
+          "date": "2024-02-05T00:00:00.000Z",
+          "order": 2
+        },
+        "content": "# UI Components Library\n\nCustom UI components built with React and Tailwind CSS.\n\n![Component Library](/placeholder.svg?height=400&width=600&query=ui+component+library+showcase)\n\n*Reusable component library with consistent design*"
+      }
+    ],
+    "info": {
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 0,
+          "frontmatter": {
+            "title": "About Me",
+            "order": 2
+          },
+          "content": "# About Me\n\nWith over 5 years of experience in web development, I specialize in building scalable applications using React, Next.js, and TypeScript. I'm passionate about clean code, user experience, and continuous learning.\n\n## Skills\n\n- Frontend: React, Next.js, TypeScript, Tailwind CSS\n- Backend: Node.js, Python, PostgreSQL\n- Tools: Git, Docker, AWS"
+        }
+      ],
+      "contact": [
+        {
+          "slug": "contact",
+          "order": 0,
+          "frontmatter": {
+            "title": "Contact",
+            "order": 3
+          },
+          "content": "# Get In Touch\n\nFeel free to reach out for collaborations or just a friendly chat.\n\n**Email:** john@example.com\n\n**Location:** San Francisco, CA"
+        }
+      ],
+      "summary": [
+        {
+          "slug": "summary",
+          "order": 0,
+          "frontmatter": {
+            "title": "Welcome",
+            "order": 1
+          },
+          "content": "# Welcome to My Portfolio\n\nI'm a passionate developer creating innovative solutions with modern web technologies. Explore my projects, read my blog, and get in touch!"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "frontmatter": {
+          "title": "E-Commerce Platform",
+          "date": "2024-01-15T00:00:00.000Z",
+          "tags": [
+            "React",
+            "Next.js",
+            "Stripe"
+          ],
+          "featured": true,
+          "order": 1
+        },
+        "content": "# E-Commerce Platform\n\nA full-featured e-commerce platform built with Next.js and Stripe integration.\n\n## Features\n\n- Product catalog with search and filters\n- Shopping cart and checkout\n- Payment processing with Stripe\n- Admin dashboard\n\n## Tech Stack\n\n- Next.js 15\n- TypeScript\n- Tailwind CSS\n- Stripe API"
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "frontmatter": {
+          "title": "Task Management App",
+          "date": "2024-02-20T00:00:00.000Z",
+          "tags": [
+            "React",
+            "TypeScript",
+            "Supabase"
+          ],
+          "featured": false,
+          "order": 2
+        },
+        "content": "# Task Management App\n\nA collaborative task management application with real-time updates.\n\n## Features\n\n- Create and organize tasks\n- Team collaboration\n- Real-time synchronization\n- File attachments\n\n## Tech Stack\n\n- React\n- TypeScript\n- Supabase\n- Tailwind CSS"
+      }
+    ],
+    "resume": [
+      {
+        "slug": "details",
+        "order": 0,
+        "frontmatter": {
+          "name": "John Doe",
+          "title": "Full Stack Developer",
+          "email": "john@example.com",
+          "phone": "+1 (555) 123-4567",
+          "location": "San Francisco, CA",
+          "website": "https://johndoe.dev"
+        },
+        "content": "# John Doe\n## Full Stack Developer\n\n### Experience\n\n**Senior Developer** - Tech Company Inc.\n*2022 - Present*\n\n- Led development of customer-facing web applications\n- Improved application performance by 40%\n- Mentored junior developers\n\n**Full Stack Developer** - Startup Co.\n*2019 - 2022*\n\n- Built scalable web applications using React and Node.js\n- Implemented CI/CD pipelines\n- Collaborated with design team on UX improvements\n\n### Education\n\n**Bachelor of Science in Computer Science**\nUniversity of California, Berkeley\n*2015 - 2019*\n\n### Skills\n\n- **Frontend:** React, Next.js, TypeScript, Tailwind CSS\n- **Backend:** Node.js, Python, PostgreSQL, MongoDB\n- **Tools:** Git, Docker, AWS, Vercel"
+      }
+    ]
+  }
+}
