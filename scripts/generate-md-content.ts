@@ -1,12 +1,14 @@
 import fs from "fs";
 import path from "path";
 import {
-    Certification,
-    Reference,
-    LanguageProficiency,
-    Publication,
-    SkillCategory,
-    SocialLink, Contact, Bio
+    CertificationSchema,
+    ReferenceSchema,
+    LanguageProficiencySchema,
+    PublicationSchema,
+    SkillCategorySchema,
+    SocialLinkSchema,
+    ContactSchema,
+    BioSchema
 } from "@/lib/models/contract";
 
 // =======================
@@ -14,8 +16,8 @@ import {
 // =======================
 const OUTPUT_DIR = path.join(__dirname, "../contents");
 const LANGUAGES = ["en", "de", "fr", "es", "jp"];       // Configurable
-const BLOG_COUNT = 3;                      // Configurable
-const MAX_ITEM = 3;                 // Configurable
+const BLOG_COUNT = 512;                      // Configurable
+const MAX_ITEM = 64;                 // Configurable
 
 // =======================
 // HELPER FUNCTIONS
@@ -236,7 +238,7 @@ ${body}
 }
 
 function generateSkills(lang: string): string {
-    const categories: SkillCategory[] = [
+    const categories: SkillCategorySchema[] = [
         { category: "Programming", items: ["Python", "TypeScript", "Java", "C++"] },
         { category: "Tools & Cloud", items: ["AWS", "Docker", "Kubernetes"] },
         { category: "Soft Skills", items: ["Leadership", "Communication", "Mentoring"] },
@@ -263,7 +265,7 @@ ${yamlContent}
 
 
 function generateCertification(i: number, lang: string): string {
-    const cert: Certification = {
+    const cert: CertificationSchema = {
         name: `Certification ${i}`,
         organization: `Organization ${i}`,
         issueDate: `202${i}-01`,
@@ -294,7 +296,7 @@ description: "${cert.description ?? ""}"
 }
 
 function generatePublication(i: number, lang: string): string {
-    const pub: Publication = {
+    const pub: PublicationSchema = {
         title: `Publication Title ${i}`,
         authors: [`Author A${i}`, `Author B${i}`],
         publisher: `Publisher ${i}`,
@@ -327,7 +329,7 @@ ${mediaYaml ? `media:\n${mediaYaml}` : ""}
 
 
 function generateLanguages(lang: string): string {
-    const languages: LanguageProficiency[] = [
+    const languages: LanguageProficiencySchema[] = [
         {
             name: "English",
             read: "Fluent",
@@ -399,7 +401,7 @@ ${yamlContent}
 }
 
 function generateReferences(lang: string): string {
-    const references: Reference[] = [
+    const references: ReferenceSchema[] = [
         {
             name: "Dr. Laura Schmidt",
             position: "Engineering Manager",
@@ -438,7 +440,7 @@ ${yamlContent}
 }
 
 function generateSocialLinks(lang: string): string {
-    const links: SocialLink[] = [
+    const links: SocialLinkSchema[] = [
         { platform: "LinkedIn", url: "https://linkedin.com/in/alexjohnson", username: "alexjohnson" },
         { platform: "GitHub", url: "https://github.com/alexjohnson", username: "alexjohnson" },
         { platform: "Twitter", url: "https://twitter.com/alexjohnson" },
@@ -462,7 +464,7 @@ ${yamlContent}
 
 
 function generateContacts(lang: string): string {
-    const contacts: Contact[] = [
+    const contacts: ContactSchema[] = [
         { type: "Email", value: "alex@example.com", label: "Work" },
         { type: "Phone", value: "+49 1522 1234567", label: "Mobile" },
         { type: "Website", value: "https://alexjohnson.dev", label: "Website" },
@@ -487,7 +489,7 @@ ${yamlContent}
 
 
 function generateBio(lang: string): string {
-    const bio: Bio = {
+    const bio: BioSchema = {
         fullName: "Alex Johnson",
         title: "Software Engineer",
         summary: "Experienced developer passionate about building scalable systems and mentoring others.",
@@ -566,7 +568,7 @@ for (const lang of LANGUAGES) {
         fs.writeFileSync(path.join(publishDir, `${i}.md`), generatePublication(i, lang), "utf8");
     }
 
-    console.log(`✅ Generated ${MAX_ITEM} Education, ${BLOG_COUNT} blogs, ${MAX_ITEM} projects, ${MAX_ITEM} experiences, ${MAX_ITEM} gallery for ${lang}`);
+    console.log(`✅ Generated ${BLOG_COUNT} Blogs, ${MAX_ITEM} Certificate, Education, Experiences, Gallery, Projects, Publication and Info for ${lang}`);
 }
 
 console.log("🎉 All multilingual content generated successfully!");

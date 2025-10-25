@@ -1,113 +1,31 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import {SkillCategory} from "@/lib/models/contract";
+import {
+    BlogSchema, CertificationSchema,
+    EducationSchema,
+    ExperienceSchema,
+    GallerySchema,
+    ProjectSchema,
+    PublicationSchema,
+} from "@/lib/models/contract";
 
 // Schema Interfaces for each content type
 // =======================
 // Education Schema
 // =======================
-export interface EducationSchema {
-    /** Display title, e.g. "Master of Computer Science" */
-    title: string;
 
-    /** Name of the institution, e.g. "Technical University Berlin" */
-    institution: string;
-
-    /** Location of the institution, e.g. "Berlin, Germany" */
-    location: string;
-
-    /** Start date in ISO format, e.g. "2018-10-01" */
-    startDate: string;
-
-    /** End date in ISO format, e.g. "2020-09-30" */
-    endDate: string;
-
-    /** Short description of the education or major */
-    description: string;
-
-    /** Optional institution logo path */
-    logo?: string;
-
-    /** Degree type, e.g. "Bachelor's", "Master's", "PhD" */
-    degree?: string;
-
-    /** Final grade or GPA, e.g. "1.7" */
-    grade?: string;
-
-    /** Whether this should be featured on the website */
-    featured?: boolean;
-
-    /** Optional full markdown body content */
-    body?: string;
-}
-
-interface ProjectSchema {
-    title: string;
-    description: string;
-    technologies: string[];
-    image: string;
-    link?: string;
-    github?: string;
-    date?: string;
-    status?: string;
-    featured?: boolean;
-}
-
-interface ExperienceSchema {
-    title: string;
-    organization: string;
-    location: string;
-    current?: boolean;
-    startDate: string;
-    endDate: string;
-    website?: string;
-    technologies?: string[];
-    description?: string;
-    responsibilities?: string[];
-    logo?: string;
-}
-
-interface BlogSchema {
-    title: string;
-    date: string;
-    author: string;
-    excerpt: string;
-    tags: string[];
-    image?: string;
-    featured?: boolean;
-    readTime?: number;
-    category?: string;
-}
-
-interface GallerySchema {
-    title: string;
-    image: string;
-    category: string;
-    description?: string;
-    date?: string;
-    tags?: string[];
-    featured?: boolean;
-}
-
-interface ResumeSchema {
-    title: string;
-    type: string;
-    description?: string;
-    icon?: string;
-    order?: number;
-}
 
 // Section to Schema mapping
 type SchemaMap = {
-    education: EducationSchema;
-    projects: ProjectSchema;
-    experience: ExperienceSchema;
-    skills: SkillCategory;
     blog: BlogSchema;
+    certificate: CertificationSchema;
+    education: EducationSchema;
+    experience: ExperienceSchema;
     gallery: GallerySchema;
-    resume: ResumeSchema;
     info: Record<string, any>; // Info section is flexible
+    projects: ProjectSchema;
+    publication: PublicationSchema;
 };
 
 interface ContentItem extends Record<string, any> {
@@ -150,14 +68,14 @@ const NAMED_SECTIONS = ['info'];
 
 // Allowed filename patterns for each section
 const FILENAME_PATTERNS: Record<string, RegExp> = {
-    projects: /^\d+\.md$/,
-    experience: /^\d+\.md$/,
-    education: /^\d+\.md$/,
-    skills: /^[a-z-]+\.md$/,
     blog: /^\d+\.md$/,
+    certificate: /^\d+\.md$/,
+    education: /^\d+\.md$/,
+    experience: /^\d+\.md$/,
     gallery: /^\d+\.md$/,
-    resume: /^\d+\.md$/,
-    info: /^[a-z-]+\.md$/
+    info: /^[a-z-]+\.md$/,
+    projects: /^\d+\.md$/,
+    publications: /^\d+\.md$/,
 };
 
 const validationErrors: ValidationError[] = [];
@@ -180,47 +98,6 @@ function getLanguages(): string[] {
  * Define required fields with actual values, optional fields with undefined
  */
 const TYPE_METADATA: Record<keyof SchemaMap, Record<string, { type: string; required: boolean }>> = {
-    education: {
-        title: { type: 'string', required: true },
-        institution: { type: 'string', required: true },
-        location: { type: 'string', required: true },
-        startDate: { type: 'date', required: true },
-        endDate: { type: 'date', required: true },
-        description: { type: 'string', required: true },
-
-        logo: { type: 'string', required: false },
-        degree: { type: 'string', required: false },
-        grade: { type: 'string', required: false },
-        featured: { type: 'string', required: false },
-        body: { type: 'string', required: false },
-    },
-    projects: {
-        title: { type: 'string', required: true },
-        description: { type: 'string', required: true },
-        technologies: { type: 'array', required: true },
-        image: { type: 'string', required: true },
-        link: { type: 'string', required: false },
-        github: { type: 'string', required: false },
-        date: { type: 'date', required: false },
-        status: { type: 'string', required: false },
-        featured: { type: 'boolean', required: false }
-    },
-    experience: {
-        title: { type: 'string', required: true },
-        organization: { type: 'string', required: true },
-        location: { type: 'string', required: true },
-        startDate: { type: 'date', required: true },
-        endDate: { type: 'date', required: true },
-        description: { type: 'string', required: false },
-        logo: { type: 'string', required: false },
-        website: { type: 'string', required: false },
-        technologies: { type: 'array', required: false },
-        current: { type: 'boolean', required: false }
-    },
-    skills: {
-        category: { type: 'string', required: true },
-        items: { type: 'array', required: true },
-    },
     blog: {
         title: { type: 'string', required: true },
         date: { type: 'date', required: true },
@@ -232,6 +109,44 @@ const TYPE_METADATA: Record<keyof SchemaMap, Record<string, { type: string; requ
         readTime: { type: 'number', required: false },
         category: { type: 'string', required: false }
     },
+    certificate: {
+        name: { type: 'string', required: true },
+        organization: { type: 'string', required: true },
+        issueDate: { type: 'date', required: true },
+        expirationDate: { type: 'date', required: false },
+        credentialId: { type: 'string', required: false },
+        credentialUrl: { type: 'string', required: false },
+        skills: { type: 'array', required: true },
+        media: { type: 'array', required: true },
+        description: { type: 'string', required: false },
+    },
+    education: {
+        title: { type: 'string', required: true },
+        institution: { type: 'string', required: true },
+        location: { type: 'string', required: true },
+        startDate: { type: 'date', required: true },
+        endDate: { type: 'date', required: true },
+        description: { type: 'string', required: true },
+
+        logo: { type: 'string', required: false },
+        degree: { type: 'string', required: false },
+        grade: { type: 'string', required: false },
+        featured: { type: 'boolean', required: false },
+        body: { type: 'string', required: false },
+    },
+    experience: {
+        title: { type: 'string', required: true },
+        organization: { type: 'string', required: true },
+        location: { type: 'string', required: true },
+        startDate: { type: 'date', required: true },
+        endDate: { type: 'date', required: true },
+        description: { type: 'string', required: false },
+        responsibilities: { type: 'array', required: false },
+        logo: { type: 'string', required: false },
+        website: { type: 'string', required: false },
+        technologies: { type: 'array', required: false },
+        current: { type: 'boolean', required: false }
+    },
     gallery: {
         title: { type: 'string', required: true },
         image: { type: 'string', required: true },
@@ -241,14 +156,29 @@ const TYPE_METADATA: Record<keyof SchemaMap, Record<string, { type: string; requ
         tags: { type: 'array', required: false },
         featured: { type: 'boolean', required: false }
     },
-    resume: {
+    info: {},
+    projects: {
         title: { type: 'string', required: true },
-        type: { type: 'string', required: true },
-        description: { type: 'string', required: false },
-        icon: { type: 'string', required: false },
-        order: { type: 'number', required: false }
+        description: { type: 'string', required: true },
+        technologies: { type: 'array', required: true },
+        image: { type: 'string', required: true },
+        link: { type: 'string', required: false },
+        github: { type: 'string', required: false },
+        date: { type: 'date', required: false },
+        status: { type: 'string', required: false },
+        featured: { type: 'boolean', required: false }
     },
-    info: {}
+    publication: {
+        title: { type: 'string', required: true },
+        authors: { type: 'array', required: true },
+        publisher: { type: 'string', required: true },
+        date: { type: 'date', required: false },
+        link: { type: 'string', required: false },
+        doi: { type: 'string', required: false },
+        summary: { type: 'string', required: false },
+        keywords: { type: 'array', required: false },
+        media: { type: 'array', required: false },
+    },
 };
 
 function isValidType(value: any, expectedType: string): boolean {
