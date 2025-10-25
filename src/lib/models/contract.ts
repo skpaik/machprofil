@@ -1,10 +1,10 @@
-export interface SkillCategory  {
+export interface SkillCategory {
     category: string;
     items: string[];
 }
 
 
-export interface  Certification {
+export interface Certification {
     name: string;
     organization: string;
     issueDate: string;
@@ -14,4 +14,17 @@ export interface  Certification {
     skills?: string[];
     media?: string[];
     description?: string;
-};
+}
+
+
+export interface Publication {
+    title: string;
+    authors: string[];
+    publisher: string;
+    date: string;
+    link?: string;
+    doi?: string;
+    summary?: string;
+    keywords?: string[];
+    media?: string[];
+}

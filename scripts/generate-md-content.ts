@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import {Certification, SkillCategory} from "@/lib/models/contract";
+import {Certification, Publication, SkillCategory} from "@/lib/models/contract";
 
 // =======================
 // CONFIGURATION
@@ -286,6 +286,37 @@ description: "${cert.description ?? ""}"
 `;
 }
 
+function generatePublication(i: number, lang: string): string {
+    const pub: Publication = {
+        title: `Publication Title ${i}`,
+        authors: [`Author A${i}`, `Author B${i}`],
+        publisher: `Publisher ${i}`,
+        date: `202${i}-06`,
+        link: `https://example.com/publication/${i}`,
+        doi: `10.1234/example-doi-${i}`,
+        summary: `This is a brief summary of publication ${i} in ${lang}.`,
+        keywords: ["Keyword1", "Keyword2", "Keyword3"],
+        media: [`https://example.com/media/pub-${i}.jpg`],
+    };
+
+    const authorsYaml = pub.authors.map((a) => `  - "${a}"`).join("\n");
+    const keywordsYaml = pub.keywords?.map((k) => `  - "${k}"`).join("\n") ?? "";
+    const mediaYaml = pub.media?.map((m) => `  - "${m}"`).join("\n") ?? "";
+
+    return `---
+title: "${pub.title}"
+authors:
+${authorsYaml}
+publisher: "${pub.publisher}"
+date: "${pub.date}"
+link: "${pub.link ?? ""}"
+doi: "${pub.doi ?? ""}"
+summary: "${pub.summary ?? ""}"
+${keywordsYaml ? `keywords:\n${keywordsYaml}` : ""}
+${mediaYaml ? `media:\n${mediaYaml}` : ""}
+---
+`;
+}
 
 
 function getOrCreateDir(lang: string, name: string) {
@@ -307,6 +338,7 @@ for (const lang of LANGUAGES) {
     const galleryDir = getOrCreateDir(lang, "gallery");
     const infoDir = getOrCreateDir(lang, "info");
     const certDir = getOrCreateDir(lang, "certificate");
+    const publishDir = getOrCreateDir(lang, "publication");
 
     for (let i = 1; i <= BLOG_COUNT; i++) {
         fs.writeFileSync(path.join(blogDir, `${i}.md`), generateBlog(i, lang), "utf8");
@@ -332,6 +364,10 @@ for (const lang of LANGUAGES) {
 
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(certDir, `${i}.md`), generateCertification(i, lang), "utf8");
+    }
+
+    for (let i = 1; i <= MAX_ITEM; i++) {
+        fs.writeFileSync(path.join(publishDir, `${i}.md`), generatePublication(i, lang), "utf8");
     }
 
     console.log(`✅ Generated ${MAX_ITEM} Education, ${BLOG_COUNT} blogs, ${MAX_ITEM} projects, ${MAX_ITEM} experiences, ${MAX_ITEM} gallery for ${lang}`);
