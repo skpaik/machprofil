@@ -55,15 +55,16 @@ interface ProjectSchema {
 
 interface ExperienceSchema {
     title: string;
-    company: string;
+    organization: string;
     location: string;
+    current?: boolean;
     startDate: string;
     endDate: string;
-    description: string;
-    logo?: string;
     website?: string;
     technologies?: string[];
-    current?: boolean;
+    description?: string;
+    responsibilities?: string[];
+    logo?: string;
 }
 
 interface BlogSchema {
@@ -202,11 +203,11 @@ const TYPE_METADATA: Record<keyof SchemaMap, Record<string, { type: string; requ
     },
     experience: {
         title: { type: 'string', required: true },
-        company: { type: 'string', required: true },
+        organization: { type: 'string', required: true },
         location: { type: 'string', required: true },
         startDate: { type: 'date', required: true },
         endDate: { type: 'date', required: true },
-        description: { type: 'string', required: true },
+        description: { type: 'string', required: false },
         logo: { type: 'string', required: false },
         website: { type: 'string', required: false },
         technologies: { type: 'array', required: false },

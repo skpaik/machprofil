@@ -96,10 +96,10 @@ function generateProject(id: number, lang: string): string {
 title: "${title}"
 description: "${description}"
 technologies: [${technologies.map(t => `"${t}"`).join(", ")}]
-image: "${image}"
 link: "${link}"
 github: "${github}"
 date: "${date}"
+image: "${image}"
 status: "${status}"
 featured: ${featured}
 ---
@@ -113,12 +113,12 @@ ${body}
 // =======================
 function generateExperience(id: number, lang: string): string {
     const title = `Senior Developer ${id} (${lang.toUpperCase()})`;
-    const company = `Tech Corp ${id}`;
+    const organization = `Tech Corp ${id}`;
     const location = "Berlin, Germany";
     const startDate = "2020-01-01";
     const endDate = "2024-01-01";
-    const description = fakeTranslate(`Led development team for ${company}.`, lang);
-    const logo = `/images/company-logo-${id}.png`;
+    const description = fakeTranslate(`Led development team for ${organization}.`, lang);
+    const logo = `/images/organization-logo-${id}.png`;
     const website = `https://company${id}.com`;
     const technologies = ["Node.js", "React"];
     const current = false;
@@ -127,15 +127,19 @@ function generateExperience(id: number, lang: string): string {
 
     return `---
 title: "${title}"
-company: "${company}"
+organization: "${organization}"
 location: "${location}"
+current: ${current}
 startDate: "${startDate}"
 endDate: "${endDate}"
-description: "${description}"
-logo: "${logo}"
 website: "${website}"
 technologies: [${technologies.map(t => `"${t}"`).join(", ")}]
-current: ${current}
+description: "${description}"
+responsibilities:
+  - "Responsibility 1 for experience ${id}"
+  - "Responsibility 2 for experience ${id}"
+  - "Responsibility 3 for experience ${id}"
+logo: "${logo}"
 ---
 
 ${body}
