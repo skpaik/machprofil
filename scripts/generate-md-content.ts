@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import {Certification, LanguageProficiency, Publication, SkillCategory} from "@/lib/models/contract";
+import {Certification, Reference, LanguageProficiency, Publication, SkillCategory} from "@/lib/models/contract";
 
 // =======================
 // CONFIGURATION
@@ -370,6 +370,65 @@ ${yamlContent}
 `;
 }
 
+function generateInterest(lang: string): string {
+    // Example interests; you can customize per profession or user
+    const interests = [
+        "Photography",
+        "Traveling",
+        "Open-source projects",
+        "Reading",
+        "Music",
+        "Sports",
+    ];
+
+    const yamlContent = interests.map((item) => `  - "${item}"`).join("\n");
+
+    return `---
+# Interests for language: ${lang}
+items:
+${yamlContent}
+---
+`;
+}
+
+function generateReferences(lang: string): string {
+    const references: Reference[] = [
+        {
+            name: "Dr. Laura Schmidt",
+            position: "Engineering Manager",
+            organization: "TechCorp GmbH",
+            email: "laura.schmidt@techcorp.de",
+            phone: "+49 1522 111222",
+            relation: "Manager at TechCorp",
+        },
+        {
+            name: "Prof. John Doe",
+            position: "Professor of Computer Science",
+            organization: "University of Hamburg",
+            email: "j.doe@uni-hamburg.de",
+            relation: "Thesis Supervisor",
+        },
+    ];
+
+    // Convert references to YAML
+    const yamlContent = references
+        .map(
+            (ref) => `- name: "${ref.name}"
+  position: "${ref.position}"
+  organization: "${ref.organization}"
+  ${ref.email ? `email: "${ref.email}"` : ""}
+  ${ref.phone ? `phone: "${ref.phone}"` : ""}
+  ${ref.relation ? `relation: "${ref.relation}"` : ""}
+  ${ref.notes ? `notes: "${ref.notes}"` : ""}`
+        )
+        .join("\n");
+
+    return `---
+# References for language: ${lang}
+${yamlContent}
+---
+`;
+}
 
 function getOrCreateDir(lang: string, name: string) {
     const dirName = path.join(OUTPUT_DIR, lang, name);
@@ -410,6 +469,8 @@ for (const lang of LANGUAGES) {
 
     fs.writeFileSync(path.join(infoDir, `skills.md`), generateSkills(lang), "utf8");
     fs.writeFileSync(path.join(infoDir, `languages.md`), generateLanguages(lang), "utf8");
+    fs.writeFileSync(path.join(infoDir, `interest.md`), generateInterest(lang), "utf8");
+    fs.writeFileSync(path.join(infoDir, `reference.md`), generateReferences(lang), "utf8");
 
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(galleryDir, `${i}.md`), generateGallery(i, lang), "utf8");

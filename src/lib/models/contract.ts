@@ -38,3 +38,14 @@ export interface LanguageProficiency {
     tests?: string[]; // Multiple tests e.g., ["IELTS", "TOEFL"]
     level?: string;   // e.g., A1, B1, C1, Good, Fluent
 }
+
+
+export interface Reference {
+    name: string;
+    position: string;
+    organization: string;
+    email?: string;
+    phone?: string;
+    relation?: string;
+    notes?: string;
+};
