@@ -4,153 +4,527 @@
   "en": {
     "blog": [
       {
+        "slug": "1",
+        "order": 1,
+        "title": "My First Blog Post",
+        "date": "2024-01-15",
+        "author": "John Doe",
+        "excerpt": "A short summary",
+        "tags": [
+          "tech",
+          "javascript"
+        ],
+        "image": "/images/blog-cover.jpg",
+        "featured": true,
+        "readTime": 5,
+        "category": "Tutorial",
+        "content": "Blog post content..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "My First Blog Post",
+        "date": "2024-01-15",
+        "author": "John Doe",
+        "excerpt": "A short summary",
+        "tags": [
+          "tech",
+          "javascript"
+        ],
+        "image": "/images/blog-cover.jpg",
+        "featured": true,
+        "readTime": 5,
+        "category": "Tutorial",
+        "content": "Blog post content..."
+      },
+      {
         "slug": "3",
         "order": 3,
-        "frontmatter": {
-          "title": "My First Blog Post",
-          "date": "2024-01-15",
-          "author": "John Doe",
-          "excerpt": "A short summary",
-          "tags": [
-            "tech",
-            "javascript"
-          ],
-          "image": "/images/blog-cover.jpg",
-          "featured": true,
-          "readTime": 5,
-          "category": "Tutorial"
-        },
+        "title": "My First Blog Post",
+        "date": "2024-01-15",
+        "author": "John Doe",
+        "excerpt": "A short summary",
+        "tags": [
+          "tech",
+          "javascript"
+        ],
+        "image": "/images/blog-cover.jpg",
+        "featured": true,
+        "readTime": 5,
+        "category": "Tutorial",
         "content": "Blog post content..."
       }
     ],
     "config": [
       {
-        "slug": "menu",
-        "order": 0,
-        "frontmatter": {
-          "order": 1
-        },
-        "content": "# Navigation Menu\n\n- [Home](/)\n- [Info](/info)\n- [Projects](/projects)\n- [Blog](/blog)\n- [Gallery](/gallery)\n- [Resume](/resume)"
-      },
-      {
         "slug": "profile",
         "order": 0,
-        "frontmatter": {
-          "name": "John Doe",
-          "title": "Full Stack Developer",
-          "email": "john@example.com",
-          "github": "https://github.com/johndoe",
-          "linkedin": "https://linkedin.com/in/johndoe",
-          "twitter": "https://twitter.com/johndoe"
-        },
+        "name": "John Doe",
+        "title": "Full Stack Developer",
+        "email": "john@example.com",
+        "github": "https://github.com/johndoe",
+        "linkedin": "https://linkedin.com/in/johndoe",
+        "twitter": "https://twitter.com/johndoe",
         "content": "# Profile\n\nFull-stack developer passionate about building elegant solutions with modern web technologies."
       },
       {
         "slug": "settings",
         "order": 0,
-        "frontmatter": {
-          "template": "modern",
-          "defaultLanguage": "en",
-          "siteName": "GoribProfile Portfolio",
-          "siteDescription": "A markdown-powered portfolio and blog"
-        },
+        "template": "modern",
+        "defaultLanguage": "en",
+        "siteName": "GoribProfile Portfolio",
+        "siteDescription": "A markdown-powered portfolio and blog",
         "content": "# Site Settings\n\nThis file controls the global settings for your GoribProfile site."
+      },
+      {
+        "slug": "menu",
+        "order": 1,
+        "content": "# Navigation Menu\n\n- [Home](/)\n- [Info](/info)\n- [Projects](/projects)\n- [Blog](/blog)\n- [Gallery](/gallery)\n- [Resume](/resume)"
       }
     ],
     "experience": [
       {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer",
+        "company": "Tech Corp",
+        "location": "Berlin, Germany",
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "description": "Led development team",
+        "logo": "/images/company-logo.png",
+        "website": "https://company.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "current": false,
+        "content": "Detailed experience description..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "Senior Developer",
+        "company": "Tech Corp",
+        "location": "Berlin, Germany",
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "description": "Led development team",
+        "logo": "/images/company-logo.png",
+        "website": "https://company.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "current": false,
+        "content": "Detailed experience description..."
+      },
+      {
         "slug": "3",
         "order": 3,
-        "frontmatter": {
-          "title": "Senior Developer",
-          "company": "Tech Corp",
-          "location": "Berlin, Germany",
-          "startDate": "2020-01-01",
-          "endDate": "2024-01-01",
-          "description": "Led development team",
-          "logo": "/images/company-logo.png",
-          "website": "https://company.com",
-          "technologies": [
-            "Node.js",
-            "React"
-          ],
-          "current": false
-        },
+        "title": "Senior Developer",
+        "company": "Tech Corp",
+        "location": "Berlin, Germany",
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "description": "Led development team",
+        "logo": "/images/company-logo.png",
+        "website": "https://company.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "current": false,
         "content": "Detailed experience description..."
       }
     ],
     "gallery": [
       {
+        "slug": "1",
+        "order": 1,
+        "title": "Beautiful Sunset",
+        "image": "/images/gallery/sunset.jpg",
+        "category": "Nature",
+        "description": "Taken in Swiss Alps",
+        "date": "2024-01-15",
+        "tags": [
+          "landscape",
+          "mountains"
+        ],
+        "featured": false,
+        "content": "Optional detailed description..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "Beautiful Sunset",
+        "image": "/images/gallery/sunset.jpg",
+        "category": "Nature",
+        "description": "Taken in Swiss Alps",
+        "date": "2024-01-15",
+        "tags": [
+          "landscape",
+          "mountains"
+        ],
+        "featured": false,
+        "content": "Optional detailed description..."
+      },
+      {
         "slug": "3",
         "order": 3,
-        "frontmatter": {
-          "title": "Beautiful Sunset",
-          "image": "/images/gallery/sunset.jpg",
-          "category": "Nature",
-          "description": "Taken in Swiss Alps",
-          "date": "2024-01-15",
-          "tags": [
-            "landscape",
-            "mountains"
-          ],
-          "featured": false
-        },
+        "title": "Beautiful Sunset",
+        "image": "/images/gallery/sunset.jpg",
+        "category": "Nature",
+        "description": "Taken in Swiss Alps",
+        "date": "2024-01-15",
+        "tags": [
+          "landscape",
+          "mountains"
+        ],
+        "featured": false,
         "content": "Optional detailed description..."
       }
     ],
     "info": {
+      "summary": [
+        {
+          "slug": "summary",
+          "order": 1,
+          "title": "Welcome",
+          "content": "# Welcome to My Portfolio\n\nI'm a passionate developer creating innovative solutions with modern web technologies. Explore my projects, read my blog, and get in touch!"
+        }
+      ],
       "bio": [
         {
           "slug": "bio",
-          "order": 0,
-          "frontmatter": {
-            "title": "About Me",
-            "order": 2
-          },
+          "order": 2,
+          "title": "About Me",
           "content": "# About Me\n\nWith over 5 years of experience in web development, I specialize in building scalable applications using React, Next.js, and TypeScript. I'm passionate about clean code, user experience, and continuous learning.\n\n## Skills\n\n- Frontend: React, Next.js, TypeScript, Tailwind CSS\n- Backend: Node.js, Python, PostgreSQL\n- Tools: Git, Docker, AWS"
         }
       ],
       "contact": [
         {
           "slug": "contact",
-          "order": 0,
-          "frontmatter": {
-            "title": "Contact",
-            "order": 3
-          },
+          "order": 3,
+          "title": "Contact",
           "content": "# Get In Touch\n\nFeel free to reach out for collaborations or just a friendly chat.\n\n**Email:** john@example.com\n\n**Location:** San Francisco, CA"
-        }
-      ],
-      "summary": [
-        {
-          "slug": "summary",
-          "order": 0,
-          "frontmatter": {
-            "title": "Welcome",
-            "order": 1
-          },
-          "content": "# Welcome to My Portfolio\n\nI'm a passionate developer creating innovative solutions with modern web technologies. Explore my projects, read my blog, and get in touch!"
         }
       ]
     },
     "projects": [
       {
+        "slug": "1",
+        "order": 1,
+        "title": "My Amazing Project",
+        "description": "Brief project overview",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "image": "/images/project.jpg",
+        "link": "https://example.com",
+        "github": "https://github.com/user/repo",
+        "date": "2024-01-15",
+        "status": "completed",
+        "featured": true,
+        "content": "Project content here..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "My Amazing Project",
+        "description": "Brief project overview",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "image": "/images/project.jpg",
+        "link": "https://example.com",
+        "github": "https://github.com/user/repo",
+        "date": "2024-01-15",
+        "status": "completed",
+        "featured": true,
+        "content": "Project content here..."
+      },
+      {
         "slug": "3",
         "order": 3,
-        "frontmatter": {
-          "title": "My Amazing Project",
-          "description": "Brief project overview",
-          "technologies": [
-            "React",
-            "TypeScript"
-          ],
-          "image": "/images/project.jpg",
-          "link": "https://example.com",
-          "github": "https://github.com/user/repo",
-          "date": "2024-01-15",
-          "status": "completed",
-          "featured": true
-        },
+        "title": "My Amazing Project",
+        "description": "Brief project overview",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "image": "/images/project.jpg",
+        "link": "https://example.com",
+        "github": "https://github.com/user/repo",
+        "date": "2024-01-15",
+        "status": "completed",
+        "featured": true,
+        "content": "Project content here..."
+      }
+    ]
+  },
+  "es": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My First Blog Post",
+        "date": "2024-01-15",
+        "author": "John Doe",
+        "excerpt": "A short summary",
+        "tags": [
+          "tech",
+          "javascript"
+        ],
+        "image": "/images/blog-cover.jpg",
+        "featured": true,
+        "readTime": 5,
+        "category": "Tutorial",
+        "content": "Blog post content..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "My First Blog Post",
+        "date": "2024-01-15",
+        "author": "John Doe",
+        "excerpt": "A short summary",
+        "tags": [
+          "tech",
+          "javascript"
+        ],
+        "image": "/images/blog-cover.jpg",
+        "featured": true,
+        "readTime": 5,
+        "category": "Tutorial",
+        "content": "Blog post content..."
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "title": "My First Blog Post",
+        "date": "2024-01-15",
+        "author": "John Doe",
+        "excerpt": "A short summary",
+        "tags": [
+          "tech",
+          "javascript"
+        ],
+        "image": "/images/blog-cover.jpg",
+        "featured": true,
+        "readTime": 5,
+        "category": "Tutorial",
+        "content": "Blog post content..."
+      }
+    ],
+    "config": [
+      {
+        "slug": "profile",
+        "order": 0,
+        "name": "John Doe",
+        "title": "Full Stack Developer",
+        "email": "john@example.com",
+        "github": "https://github.com/johndoe",
+        "linkedin": "https://linkedin.com/in/johndoe",
+        "twitter": "https://twitter.com/johndoe",
+        "content": "# Profile\n\nFull-stack developer passionate about building elegant solutions with modern web technologies."
+      },
+      {
+        "slug": "settings",
+        "order": 0,
+        "template": "modern",
+        "defaultLanguage": "en",
+        "siteName": "GoribProfile Portfolio",
+        "siteDescription": "A markdown-powered portfolio and blog",
+        "content": "# Site Settings\n\nThis file controls the global settings for your GoribProfile site."
+      },
+      {
+        "slug": "menu",
+        "order": 1,
+        "content": "# Navigation Menu\n\n- [Home](/)\n- [Info](/info)\n- [Projects](/projects)\n- [Blog](/blog)\n- [Gallery](/gallery)\n- [Resume](/resume)"
+      }
+    ],
+    "experience": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer",
+        "company": "Tech Corp",
+        "location": "Berlin, Germany",
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "description": "Led development team",
+        "logo": "/images/company-logo.png",
+        "website": "https://company.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "current": false,
+        "content": "Detailed experience description..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "Senior Developer",
+        "company": "Tech Corp",
+        "location": "Berlin, Germany",
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "description": "Led development team",
+        "logo": "/images/company-logo.png",
+        "website": "https://company.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "current": false,
+        "content": "Detailed experience description..."
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "title": "Senior Developer",
+        "company": "Tech Corp",
+        "location": "Berlin, Germany",
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "description": "Led development team",
+        "logo": "/images/company-logo.png",
+        "website": "https://company.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "current": false,
+        "content": "Detailed experience description..."
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Beautiful Sunset",
+        "image": "/images/gallery/sunset.jpg",
+        "category": "Nature",
+        "description": "Taken in Swiss Alps",
+        "date": "2024-01-15",
+        "tags": [
+          "landscape",
+          "mountains"
+        ],
+        "featured": false,
+        "content": "Optional detailed description..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "Beautiful Sunset",
+        "image": "/images/gallery/sunset.jpg",
+        "category": "Nature",
+        "description": "Taken in Swiss Alps",
+        "date": "2024-01-15",
+        "tags": [
+          "landscape",
+          "mountains"
+        ],
+        "featured": false,
+        "content": "Optional detailed description..."
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "title": "Beautiful Sunset",
+        "image": "/images/gallery/sunset.jpg",
+        "category": "Nature",
+        "description": "Taken in Swiss Alps",
+        "date": "2024-01-15",
+        "tags": [
+          "landscape",
+          "mountains"
+        ],
+        "featured": false,
+        "content": "Optional detailed description..."
+      }
+    ],
+    "info": {
+      "summary": [
+        {
+          "slug": "summary",
+          "order": 1,
+          "title": "Welcome",
+          "content": "# Welcome to My Portfolio\n\nI'm a passionate developer creating innovative solutions with modern web technologies. Explore my projects, read my blog, and get in touch!"
+        }
+      ],
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 2,
+          "title": "About Me",
+          "content": "# About Me\n\nWith over 5 years of experience in web development, I specialize in building scalable applications using React, Next.js, and TypeScript. I'm passionate about clean code, user experience, and continuous learning.\n\n## Skills\n\n- Frontend: React, Next.js, TypeScript, Tailwind CSS\n- Backend: Node.js, Python, PostgreSQL\n- Tools: Git, Docker, AWS"
+        }
+      ],
+      "contact": [
+        {
+          "slug": "contact",
+          "order": 3,
+          "title": "Contact",
+          "content": "# Get In Touch\n\nFeel free to reach out for collaborations or just a friendly chat.\n\n**Email:** john@example.com\n\n**Location:** San Francisco, CA"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Amazing Project",
+        "description": "Brief project overview",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "image": "/images/project.jpg",
+        "link": "https://example.com",
+        "github": "https://github.com/user/repo",
+        "date": "2024-01-15",
+        "status": "completed",
+        "featured": true,
+        "content": "Project content here..."
+      },
+      {
+        "slug": "2",
+        "order": 2,
+        "title": "My Amazing Project",
+        "description": "Brief project overview",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "image": "/images/project.jpg",
+        "link": "https://example.com",
+        "github": "https://github.com/user/repo",
+        "date": "2024-01-15",
+        "status": "completed",
+        "featured": true,
+        "content": "Project content here..."
+      },
+      {
+        "slug": "3",
+        "order": 3,
+        "title": "My Amazing Project",
+        "description": "Brief project overview",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "image": "/images/project.jpg",
+        "link": "https://example.com",
+        "github": "https://github.com/user/repo",
+        "date": "2024-01-15",
+        "status": "completed",
+        "featured": true,
         "content": "Project content here..."
       }
     ]
