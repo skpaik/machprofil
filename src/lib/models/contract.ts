@@ -63,3 +63,12 @@ export interface Contact {
     label?: string;
     description?: string;
 }
+
+export interface Bio {
+    fullName: string;
+    title: string;
+    summary: string;
+    location: string;
+    dob?: string;
+    photo?: string;
+};

@@ -6,7 +6,7 @@ import {
     LanguageProficiency,
     Publication,
     SkillCategory,
-    SocialLink, Contact
+    SocialLink, Contact, Bio
 } from "@/lib/models/contract";
 
 // =======================
@@ -465,6 +465,7 @@ function generateContacts(lang: string): string {
     const contacts: Contact[] = [
         { type: "Email", value: "alex@example.com", label: "Work" },
         { type: "Phone", value: "+49 1522 1234567", label: "Mobile" },
+        { type: "Website", value: "https://alexjohnson.dev", label: "Website" },
         { type: "Address", value: "Berlin, Germany", description: "Current residence" },
     ];
 
@@ -480,6 +481,29 @@ function generateContacts(lang: string): string {
     return `---
 # Contacts for language: ${lang}
 ${yamlContent}
+---
+`;
+}
+
+
+function generateBio(lang: string): string {
+    const bio: Bio = {
+        fullName: "Alex Johnson",
+        title: "Software Engineer",
+        summary: "Experienced developer passionate about building scalable systems and mentoring others.",
+        location: "Berlin, Germany",
+        dob: "1990-05-12",
+        photo: "https://example.com/photos/alex.jpg",
+    };
+
+    return `---
+# Bio for language: ${lang}
+fullName: "${bio.fullName}"
+title: "${bio.title}"
+summary: "${bio.summary}"
+location: "${bio.location}"
+${bio.dob ? `dob: "${bio.dob}"` : ""}
+${bio.photo ? `photo: "${bio.photo}"` : ""}
 ---
 `;
 }
@@ -522,6 +546,7 @@ for (const lang of LANGUAGES) {
         fs.writeFileSync(path.join(expDir, `${i}.md`), generateExperience(i, lang), "utf8");
     }
 
+    fs.writeFileSync(path.join(infoDir, `bio.md`), generateBio(lang), "utf8");
     fs.writeFileSync(path.join(infoDir, `skills.md`), generateSkills(lang), "utf8");
     fs.writeFileSync(path.join(infoDir, `languages.md`), generateLanguages(lang), "utf8");
     fs.writeFileSync(path.join(infoDir, `interest.md`), generateInterest(lang), "utf8");
