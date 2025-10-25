@@ -227,6 +227,37 @@ ${body}
 `;
 }
 
+type SkillCategory = {
+    category: string;
+    items: string[];
+};
+
+function generateSkills(lang: string): string {
+    const categories: SkillCategory[] = [
+        { category: "Programming", items: ["Python", "TypeScript", "Java", "C++"] },
+        { category: "Tools & Cloud", items: ["AWS", "Docker", "Kubernetes"] },
+        { category: "Soft Skills", items: ["Leadership", "Communication", "Mentoring"] },
+        { category: "Design & Creative", items: ["Photoshop", "Figma", "Adobe Illustrator"] },
+        { category: "Languages", items: ["English", "German", "French"] },
+    ];
+
+    // Convert categories to YAML
+    const yamlContent = categories
+        .map(
+            (cat) =>
+                `- category: "${cat.category}"\n  items:\n${cat.items
+                    .map((item) => `    - "${item}"`)
+                    .join("\n")}`
+        )
+        .join("\n");
+
+    return `---
+# Skills for language: ${lang}
+${yamlContent}
+---
+`;
+}
+
 function getOrCreateDir(lang: string, name: string) {
     const dirName = path.join(OUTPUT_DIR, lang, name);
 
@@ -244,6 +275,7 @@ for (const lang of LANGUAGES) {
     const educationDir = getOrCreateDir(lang, "education");
     const expDir = getOrCreateDir(lang, "experience");
     const galleryDir = getOrCreateDir(lang, "gallery");
+    const infoDir = getOrCreateDir(lang, "info");
 
     for (let i = 1; i <= BLOG_COUNT; i++) {
         fs.writeFileSync(path.join(blogDir, `${i}.md`), generateBlog(i, lang), "utf8");
@@ -260,6 +292,8 @@ for (const lang of LANGUAGES) {
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(expDir, `${i}.md`), generateExperience(i, lang), "utf8");
     }
+
+    fs.writeFileSync(path.join(infoDir, `skills.md`), generateSkills(lang), "utf8");
 
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(galleryDir, `${i}.md`), generateGallery(i, lang), "utf8");
