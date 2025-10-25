@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import {Certification, SkillCategory} from "@/lib/models/contract";
 
 // =======================
 // CONFIGURATION
@@ -227,11 +228,6 @@ ${body}
 `;
 }
 
-type SkillCategory = {
-    category: string;
-    items: string[];
-};
-
 function generateSkills(lang: string): string {
     const categories: SkillCategory[] = [
         { category: "Programming", items: ["Python", "TypeScript", "Java", "C++"] },
@@ -258,6 +254,40 @@ ${yamlContent}
 `;
 }
 
+
+function generateCertification(i: number, lang: string): string {
+    const cert: Certification = {
+        name: `Certification ${i}`,
+        organization: `Organization ${i}`,
+        issueDate: `202${i}-01`,
+        expirationDate: `202${i + 2}-01`,
+        credentialId: `CERT-${1000 + i}`,
+        credentialUrl: `https://example.com/certifications/${i}`,
+        skills: ["Skill A", "Skill B", "Skill C"],
+        media: [`https://example.com/media/cert-${i}.jpg`],
+        description: `Description of certification ${i} in ${lang}`,
+    };
+
+    // Convert skills and media arrays to YAML
+    const skillsYaml = cert.skills?.map((s) => `  - "${s}"`).join("\n") ?? "";
+    const mediaYaml = cert.media?.map((m) => `  - "${m}"`).join("\n") ?? "";
+
+    return `---
+name: "${cert.name}"
+organization: "${cert.organization}"
+issueDate: "${cert.issueDate}"
+expirationDate: "${cert.expirationDate ?? ""}"
+credentialId: "${cert.credentialId ?? ""}"
+credentialUrl: "${cert.credentialUrl ?? ""}"
+${skillsYaml ? `skills:\n${skillsYaml}` : ""}
+${mediaYaml ? `media:\n${mediaYaml}` : ""}
+description: "${cert.description ?? ""}"
+---
+`;
+}
+
+
+
 function getOrCreateDir(lang: string, name: string) {
     const dirName = path.join(OUTPUT_DIR, lang, name);
 
@@ -276,6 +306,7 @@ for (const lang of LANGUAGES) {
     const expDir = getOrCreateDir(lang, "experience");
     const galleryDir = getOrCreateDir(lang, "gallery");
     const infoDir = getOrCreateDir(lang, "info");
+    const certDir = getOrCreateDir(lang, "certificate");
 
     for (let i = 1; i <= BLOG_COUNT; i++) {
         fs.writeFileSync(path.join(blogDir, `${i}.md`), generateBlog(i, lang), "utf8");
@@ -297,6 +328,10 @@ for (const lang of LANGUAGES) {
 
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(galleryDir, `${i}.md`), generateGallery(i, lang), "utf8");
+    }
+
+    for (let i = 1; i <= MAX_ITEM; i++) {
+        fs.writeFileSync(path.join(certDir, `${i}.md`), generateCertification(i, lang), "utf8");
     }
 
     console.log(`✅ Generated ${MAX_ITEM} Education, ${BLOG_COUNT} blogs, ${MAX_ITEM} projects, ${MAX_ITEM} experiences, ${MAX_ITEM} gallery for ${lang}`);

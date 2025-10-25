@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import {SkillCategory} from "@/lib/models/contract";
 
 // Schema Interfaces for each content type
 // =======================
@@ -102,6 +103,7 @@ type SchemaMap = {
     education: EducationSchema;
     projects: ProjectSchema;
     experience: ExperienceSchema;
+    skills: SkillCategory;
     blog: BlogSchema;
     gallery: GallerySchema;
     resume: ResumeSchema;
@@ -150,6 +152,8 @@ const NAMED_SECTIONS = ['info'];
 const FILENAME_PATTERNS: Record<string, RegExp> = {
     projects: /^\d+\.md$/,
     experience: /^\d+\.md$/,
+    education: /^\d+\.md$/,
+    skills: /^[a-z-]+\.md$/,
     blog: /^\d+\.md$/,
     gallery: /^\d+\.md$/,
     resume: /^\d+\.md$/,
@@ -212,6 +216,10 @@ const TYPE_METADATA: Record<keyof SchemaMap, Record<string, { type: string; requ
         website: { type: 'string', required: false },
         technologies: { type: 'array', required: false },
         current: { type: 'boolean', required: false }
+    },
+    skills: {
+        category: { type: 'string', required: true },
+        items: { type: 'array', required: true },
     },
     blog: {
         title: { type: 'string', required: true },
