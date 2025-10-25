@@ -261,7 +261,7 @@ for (const lang of LANGUAGES) {
         fs.writeFileSync(path.join(galleryDir, `${i}.md`), generateGallery(i, lang), "utf8");
     }
 
-    console.log(`✅ Generated ${BLOG_COUNT} blogs, ${MAX_ITEM} projects, ${MAX_ITEM} experiences, ${MAX_ITEM} gallery for ${lang}`);
+    console.log(`✅ Generated ${MAX_ITEM} Education, ${BLOG_COUNT} blogs, ${MAX_ITEM} projects, ${MAX_ITEM} experiences, ${MAX_ITEM} gallery for ${lang}`);
 }
 
 console.log("🎉 All multilingual content generated successfully!");
