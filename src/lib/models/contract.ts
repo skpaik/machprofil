@@ -28,3 +28,13 @@ export interface Publication {
     keywords?: string[];
     media?: string[];
 }
+
+export interface LanguageProficiency {
+    name: string;
+    read: string;
+    write: string;
+    speak: string;
+    listen: string;
+    tests?: string[]; // Multiple tests e.g., ["IELTS", "TOEFL"]
+    level?: string;   // e.g., A1, B1, C1, Good, Fluent
+}

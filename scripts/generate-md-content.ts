@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import {Certification, Publication, SkillCategory} from "@/lib/models/contract";
+import {Certification, LanguageProficiency, Publication, SkillCategory} from "@/lib/models/contract";
 
 // =======================
 // CONFIGURATION
@@ -319,6 +319,58 @@ ${mediaYaml ? `media:\n${mediaYaml}` : ""}
 }
 
 
+function generateLanguages(lang: string): string {
+    const languages: LanguageProficiency[] = [
+        {
+            name: "English",
+            read: "Fluent",
+            write: "Fluent",
+            speak: "Fluent",
+            listen: "Fluent",
+            tests: ["IELTS", "TOEFL"],
+            level: "C1",
+        },
+        {
+            name: "German",
+            read: "Intermediate",
+            write: "Intermediate",
+            speak: "Intermediate",
+            listen: "Intermediate",
+            tests: ["Goethe B2", "Telc B2"],
+            level: "B2",
+        },
+        {
+            name: "French",
+            read: "Good",
+            write: "Good",
+            speak: "Intermediate",
+            listen: "Good",
+            level: "B1",
+        },
+    ];
+
+    // Convert to YAML
+    const yamlContent = languages
+        .map((l) => {
+            const testsYaml = l.tests?.map((t) => `    - "${t}"`).join("\n") ?? "";
+            return `- name: "${l.name}"
+  read: "${l.read}"
+  write: "${l.write}"
+  speak: "${l.speak}"
+  listen: "${l.listen}"
+${testsYaml ? `  tests:\n${testsYaml}` : ""}
+${l.level ? `  level: "${l.level}"` : ""}`;
+        })
+        .join("\n");
+
+    return `---
+# Languages for language: ${lang}
+${yamlContent}
+---
+`;
+}
+
+
 function getOrCreateDir(lang: string, name: string) {
     const dirName = path.join(OUTPUT_DIR, lang, name);
 
@@ -357,6 +409,7 @@ for (const lang of LANGUAGES) {
     }
 
     fs.writeFileSync(path.join(infoDir, `skills.md`), generateSkills(lang), "utf8");
+    fs.writeFileSync(path.join(infoDir, `languages.md`), generateLanguages(lang), "utf8");
 
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(galleryDir, `${i}.md`), generateGallery(i, lang), "utf8");
