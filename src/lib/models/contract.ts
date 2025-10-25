@@ -48,4 +48,18 @@ export interface Reference {
     phone?: string;
     relation?: string;
     notes?: string;
-};
+}
+
+export interface SocialLink {
+    platform: string;
+    url: string;
+    username?: string;
+    description?: string;
+}
+
+export interface Contact {
+    type: string;
+    value: string;
+    label?: string;
+    description?: string;
+}

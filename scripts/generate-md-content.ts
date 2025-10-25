@@ -1,6 +1,13 @@
 import fs from "fs";
 import path from "path";
-import {Certification, Reference, LanguageProficiency, Publication, SkillCategory} from "@/lib/models/contract";
+import {
+    Certification,
+    Reference,
+    LanguageProficiency,
+    Publication,
+    SkillCategory,
+    SocialLink, Contact
+} from "@/lib/models/contract";
 
 // =======================
 // CONFIGURATION
@@ -430,6 +437,54 @@ ${yamlContent}
 `;
 }
 
+function generateSocialLinks(lang: string): string {
+    const links: SocialLink[] = [
+        { platform: "LinkedIn", url: "https://linkedin.com/in/alexjohnson", username: "alexjohnson" },
+        { platform: "GitHub", url: "https://github.com/alexjohnson", username: "alexjohnson" },
+        { platform: "Twitter", url: "https://twitter.com/alexjohnson" },
+    ];
+
+    const yamlContent = links
+        .map(
+            (link) => `- platform: "${link.platform}"
+  url: "${link.url}"
+  ${link.username ? `username: "${link.username}"` : ""}
+  ${link.description ? `description: "${link.description}"` : ""}`
+        )
+        .join("\n");
+
+    return `---
+# Social Links for language: ${lang}
+${yamlContent}
+---
+`;
+}
+
+
+function generateContacts(lang: string): string {
+    const contacts: Contact[] = [
+        { type: "Email", value: "alex@example.com", label: "Work" },
+        { type: "Phone", value: "+49 1522 1234567", label: "Mobile" },
+        { type: "Address", value: "Berlin, Germany", description: "Current residence" },
+    ];
+
+    const yamlContent = contacts
+        .map(
+            (c) => `- type: "${c.type}"
+  value: "${c.value}"
+  ${c.label ? `label: "${c.label}"` : ""}
+  ${c.description ? `description: "${c.description}"` : ""}`
+        )
+        .join("\n");
+
+    return `---
+# Contacts for language: ${lang}
+${yamlContent}
+---
+`;
+}
+
+
 function getOrCreateDir(lang: string, name: string) {
     const dirName = path.join(OUTPUT_DIR, lang, name);
 
@@ -471,6 +526,8 @@ for (const lang of LANGUAGES) {
     fs.writeFileSync(path.join(infoDir, `languages.md`), generateLanguages(lang), "utf8");
     fs.writeFileSync(path.join(infoDir, `interest.md`), generateInterest(lang), "utf8");
     fs.writeFileSync(path.join(infoDir, `reference.md`), generateReferences(lang), "utf8");
+    fs.writeFileSync(path.join(infoDir, `social.md`), generateSocialLinks(lang), "utf8");
+    fs.writeFileSync(path.join(infoDir, `contact.md`), generateContacts(lang), "utf8");
 
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(galleryDir, `${i}.md`), generateGallery(i, lang), "utf8");
