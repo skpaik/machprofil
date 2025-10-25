@@ -3,6 +3,44 @@ import path from 'path';
 import matter from 'gray-matter';
 
 // Schema Interfaces for each content type
+// =======================
+// Education Schema
+// =======================
+export interface EducationSchema {
+    /** Display title, e.g. "Master of Computer Science" */
+    title: string;
+
+    /** Name of the institution, e.g. "Technical University Berlin" */
+    institution: string;
+
+    /** Location of the institution, e.g. "Berlin, Germany" */
+    location: string;
+
+    /** Start date in ISO format, e.g. "2018-10-01" */
+    startDate: string;
+
+    /** End date in ISO format, e.g. "2020-09-30" */
+    endDate: string;
+
+    /** Short description of the education or major */
+    description: string;
+
+    /** Optional institution logo path */
+    logo?: string;
+
+    /** Degree type, e.g. "Bachelor's", "Master's", "PhD" */
+    degree?: string;
+
+    /** Final grade or GPA, e.g. "1.7" */
+    grade?: string;
+
+    /** Whether this should be featured on the website */
+    featured?: boolean;
+
+    /** Optional full markdown body content */
+    body?: string;
+}
+
 interface ProjectSchema {
     title: string;
     description: string;
@@ -60,6 +98,7 @@ interface ResumeSchema {
 
 // Section to Schema mapping
 type SchemaMap = {
+    education: EducationSchema;
     projects: ProjectSchema;
     experience: ExperienceSchema;
     blog: BlogSchema;
@@ -136,6 +175,20 @@ function getLanguages(): string[] {
  * Define required fields with actual values, optional fields with undefined
  */
 const TYPE_METADATA: Record<keyof SchemaMap, Record<string, { type: string; required: boolean }>> = {
+    education: {
+        title: { type: 'string', required: true },
+        institution: { type: 'string', required: true },
+        location: { type: 'string', required: true },
+        startDate: { type: 'date', required: true },
+        endDate: { type: 'date', required: true },
+        description: { type: 'string', required: true },
+
+        logo: { type: 'string', required: false },
+        degree: { type: 'string', required: false },
+        grade: { type: 'string', required: false },
+        featured: { type: 'string', required: false },
+        body: { type: 'string', required: false },
+    },
     projects: {
         title: { type: 'string', required: true },
         description: { type: 'string', required: true },
