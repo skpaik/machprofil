@@ -68,10 +68,9 @@ type SchemaMap = {
     info: Record<string, any>; // Info section is flexible
 };
 
-interface ContentItem {
+interface ContentItem extends Record<string, any> {
     slug: string;
     order: number;
-    frontmatter: Record<string, any>;
     content: string;
 }
 
@@ -104,9 +103,6 @@ const CONTENTS_DIR = path.join(process.cwd(), 'contents');
 const OUTPUT_DIR = path.join(process.cwd(), 'data');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'content.json');
 
-// Sections that use numbered files (1.md, 2.md, etc.)
-const NUMBERED_SECTIONS = ['projects', 'experience', 'blog', 'gallery', 'resume'];
-
 // Sections that use named files (bio.md, contact.md, etc.)
 const NAMED_SECTIONS = ['info'];
 
@@ -133,102 +129,66 @@ function getLanguages(): string[] {
     }
 
     return fs.readdirSync(CONTENTS_DIR)
-        .filter(item => {
-            const itemPath = path.join(CONTENTS_DIR, item);
-            return fs.statSync(itemPath).isDirectory();
-        });
+        .filter(item => fs.statSync(path.join(CONTENTS_DIR, item)).isDirectory());
 }
-
 /**
  * Schema definitions - single source of truth
  * Define required fields with actual values, optional fields with undefined
  */
-const SCHEMA_DEFINITIONS = {
+const TYPE_METADATA: Record<keyof SchemaMap, Record<string, { type: string; required: boolean }>> = {
     projects: {
-        title: 'string',
-        description: 'string',
-        technologies: 'array',
-        image: 'string',
-        link: 'string?',
-        github: 'string?',
-        date: 'date?',
-        status: 'string?',
-        featured: 'boolean?'
+        title: { type: 'string', required: true },
+        description: { type: 'string', required: true },
+        technologies: { type: 'array', required: true },
+        image: { type: 'string', required: true },
+        link: { type: 'string', required: false },
+        github: { type: 'string', required: false },
+        date: { type: 'date', required: false },
+        status: { type: 'string', required: false },
+        featured: { type: 'boolean', required: false }
     },
     experience: {
-        title: 'string',
-        company: 'string',
-        location: 'string',
-        startDate: 'date',
-        endDate: 'date',
-        description: 'string',
-        logo: 'string?',
-        website: 'string?',
-        technologies: 'array?',
-        current: 'boolean?'
+        title: { type: 'string', required: true },
+        company: { type: 'string', required: true },
+        location: { type: 'string', required: true },
+        startDate: { type: 'date', required: true },
+        endDate: { type: 'date', required: true },
+        description: { type: 'string', required: true },
+        logo: { type: 'string', required: false },
+        website: { type: 'string', required: false },
+        technologies: { type: 'array', required: false },
+        current: { type: 'boolean', required: false }
     },
     blog: {
-        title: 'string',
-        date: 'date',
-        author: 'string',
-        excerpt: 'string',
-        tags: 'array',
-        image: 'string?',
-        featured: 'boolean?',
-        readTime: 'number?',
-        category: 'string?'
+        title: { type: 'string', required: true },
+        date: { type: 'date', required: true },
+        author: { type: 'string', required: true },
+        excerpt: { type: 'string', required: true },
+        tags: { type: 'array', required: true },
+        image: { type: 'string', required: false },
+        featured: { type: 'boolean', required: false },
+        readTime: { type: 'number', required: false },
+        category: { type: 'string', required: false }
     },
     gallery: {
-        title: 'string',
-        image: 'string',
-        category: 'string',
-        description: 'string?',
-        date: 'date?',
-        tags: 'array?',
-        featured: 'boolean?'
+        title: { type: 'string', required: true },
+        image: { type: 'string', required: true },
+        category: { type: 'string', required: true },
+        description: { type: 'string', required: false },
+        date: { type: 'date', required: false },
+        tags: { type: 'array', required: false },
+        featured: { type: 'boolean', required: false }
     },
     resume: {
-        title: 'string',
-        type: 'string',
-        description: 'string?',
-        icon: 'string?',
-        order: 'number?'
+        title: { type: 'string', required: true },
+        type: { type: 'string', required: true },
+        description: { type: 'string', required: false },
+        icon: { type: 'string', required: false },
+        order: { type: 'number', required: false }
     },
     info: {}
-} as const;
+};
 
-/**
- * Get schema metadata from definitions
- */
-function getSchemaMetadata(section: keyof typeof SCHEMA_DEFINITIONS): {
-    requiredFields: string[];
-    optionalFields: string[];
-    fieldTypes: Record<string, string>;
-} {
-    const schema = SCHEMA_DEFINITIONS[section];
-    const requiredFields: string[] = [];
-    const optionalFields: string[] = [];
-    const fieldTypes: Record<string, string> = {};
-
-    Object.entries(schema).forEach(([key, typeStr]) => {
-        const isOptional = (typeStr as string).endsWith('?');
-        const cleanType = isOptional ? (typeStr as string).slice(0, -1) : typeStr;
-
-        if (isOptional) {
-            optionalFields.push(key);
-        } else {
-            requiredFields.push(key);
-        }
-
-        fieldTypes[key] = cleanType as string;
-    });
-
-    return { requiredFields, optionalFields, fieldTypes };
-}
-
-/**
- * Type guard to check if value matches expected type
- */
 function isValidType(value: any, expectedType: string): boolean {
     switch (expectedType) {
         case 'string':
@@ -260,7 +220,7 @@ function getTypeName(value: any): string {
  * Validate frontmatter against schema interface
  */
 function validateAgainstSchema<T extends keyof SchemaMap>(
-    frontmatter: Record<string, any>,
+    data: Record<string, any>,
     section: T
 ): string[] {
     const errors: string[] = [];
@@ -268,47 +228,46 @@ function validateAgainstSchema<T extends keyof SchemaMap>(
     // Skip validation for info section (flexible schema)
     if (section === 'info') return errors;
 
-    // Get schema metadata from the interface
-    const { requiredFields, optionalFields, fieldTypes } = getSchemaMetadata(section);
+    const metadata = TYPE_METADATA[section];
+    const requiredFields = Object.entries(metadata)
+        .filter(([_, meta]) => meta.required)
+        .map(([field]) => field);
+
+    const allowedFields = Object.keys(metadata);
 
     // Check required fields
-    requiredFields.forEach(field => {
-        if (!(field in frontmatter)) {
+    for (const field of requiredFields) {
+        if (!(field in data)) {
             errors.push(`Missing required field: "${field}"`);
-        } else if (frontmatter[field] === null || frontmatter[field] === undefined || frontmatter[field] === '') {
+        } else if (data[field] === null || data[field] === undefined || data[field] === '') {
             errors.push(`Required field "${field}" is empty or null`);
         } else {
-            const expectedType = fieldTypes[field];
-            if (!isValidType(frontmatter[field], expectedType)) {
-                errors.push(`Field "${field}" must be ${expectedType}, got ${getTypeName(frontmatter[field])}`);
+            const expectedType = metadata[field].type;
+            if (!isValidType(data[field], expectedType)) {
+                errors.push(`Field "${field}" must be ${expectedType}, got ${getTypeName(data[field])}`);
             }
         }
-    });
+    }
 
     // Check optional fields (only validate type if present)
-    optionalFields.forEach(field => {
-        if (field in frontmatter && frontmatter[field] !== null && frontmatter[field] !== undefined) {
-            const expectedType = fieldTypes[field];
-            if (!isValidType(frontmatter[field], expectedType)) {
-                errors.push(`Field "${field}" must be ${expectedType}, got ${getTypeName(frontmatter[field])}`);
+    for (const [field, meta] of Object.entries(metadata)) {
+        if (!meta.required && field in data && data[field] !== null && data[field] !== undefined) {
+            if (!isValidType(data[field], meta.type)) {
+                errors.push(`Field "${field}" must be ${meta.type}, got ${getTypeName(data[field])}`);
             }
         }
-    });
+    }
 
-    // Check for unexpected fields (strict mode)
-    const allowedFields = [...requiredFields, ...optionalFields];
-    Object.keys(frontmatter).forEach(field => {
+    // Check for unexpected fields
+    for (const field of Object.keys(data)) {
         if (!allowedFields.includes(field)) {
             errors.push(`Unexpected field "${field}". Allowed: ${allowedFields.join(', ')}`);
         }
-    });
+    }
 
     return errors;
 }
 
-/**
- * Validate markdown file content and structure
- */
 function validateMarkdownFile(
     filePath: string,
     fileName: string,
@@ -325,9 +284,10 @@ function validateMarkdownFile(
         errors.push(`Invalid filename pattern. Expected: ${pattern}`);
     }
 
-    // Validate against schema interface
+    // Validate against schema interface (exclude slug, order, content from validation)
     if (section in FILENAME_PATTERNS && section !== 'info') {
-        const schemaErrors = validateAgainstSchema(item.frontmatter, section as keyof SchemaMap);
+        const { slug, order, content, ...dataToValidate } = item;
+        const schemaErrors = validateAgainstSchema(dataToValidate, section as keyof SchemaMap);
         errors.push(...schemaErrors);
     }
 
@@ -336,34 +296,16 @@ function validateMarkdownFile(
         warnings.push('Content is empty');
     }
 
-    // Validate frontmatter structure
-    if (Object.keys(item.frontmatter).length === 0 && section !== 'info') {
-        warnings.push('No frontmatter found');
-    }
-
     // Store validation results
     if (errors.length > 0) {
-        validationErrors.push({
-            file: filePath,
-            section,
-            lang,
-            errors
-        });
+        validationErrors.push({ file: filePath, section, lang, errors });
     }
 
     if (warnings.length > 0) {
-        validationWarnings.push({
-            file: filePath,
-            section,
-            lang,
-            errors: warnings
-        });
+        validationWarnings.push({ file: filePath, section, lang, errors: warnings });
     }
 }
 
-/**
- * Parse a markdown file and return structured data
- */
 function parseMarkdownFile(filePath: string, fileName: string, section: string, lang: string): ContentItem | null {
     try {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -376,10 +318,11 @@ function parseMarkdownFile(filePath: string, fileName: string, section: string, 
         // Generate slug from filename without extension
         const slug = fileName.replace(/\.md$/, '');
 
+        // Merge frontmatter fields directly with slug, order, and content
         const item: ContentItem = {
             slug,
             order,
-            frontmatter,
+            ...frontmatter,
             content: content.trim()
         };
 
@@ -398,9 +341,6 @@ function parseMarkdownFile(filePath: string, fileName: string, section: string, 
     }
 }
 
-/**
- * Get all markdown files from a section directory
- */
 function getSectionContent(langDir: string, section: string, lang: string): ContentItem[] {
     const sectionPath = path.join(langDir, section);
 
@@ -408,40 +348,27 @@ function getSectionContent(langDir: string, section: string, lang: string): Cont
         return [];
     }
 
-    const files = fs.readdirSync(sectionPath)
-        .filter(file => file.endsWith('.md'));
+    const files = fs.readdirSync(sectionPath).filter(file => file.endsWith('.md'));
 
     const items = files
-        .map(file => {
-            const filePath = path.join(sectionPath, file);
-            return parseMarkdownFile(filePath, file, section, lang);
-        })
-        .filter((item): item is ContentItem => item !== null); // Remove failed parses
+        .map(file => parseMarkdownFile(path.join(sectionPath, file), file, section, lang))
+        .filter((item): item is ContentItem => item !== null);
 
-    // Sort by order (number in filename)
     return items.sort((a, b) => a.order - b.order);
 }
 
-/**
- * Process all sections for a language
- */
 function processLanguage(lang: string): LanguageData {
     const langDir = path.join(CONTENTS_DIR, lang);
     const data: LanguageData = {};
 
-    // Get all sections available in this language directory
     if (!fs.existsSync(langDir)) {
         return data;
     }
 
     const sections = fs.readdirSync(langDir)
-        .filter(item => {
-            const itemPath = path.join(langDir, item);
-            return fs.statSync(itemPath).isDirectory();
-        });
+        .filter(item => fs.statSync(path.join(langDir, item)).isDirectory());
 
-    // Process each section
-    sections.forEach(section => {
+    for (const section of sections) {
         const content = getSectionContent(langDir, section, lang);
 
         if (content.length > 0) {
@@ -456,14 +383,11 @@ function processLanguage(lang: string): LanguageData {
                 data[section] = content;
             }
         }
-    });
+    }
 
     return data;
 }
 
-/**
- * Print validation results
- */
 function printValidationResults(): ValidationResult {
     const hasErrors = validationErrors.length > 0;
     const hasWarnings = validationWarnings.length > 0;
@@ -497,9 +421,6 @@ function printValidationResults(): ValidationResult {
     };
 }
 
-/**
- * Generate content.json from all markdown files
- */
 function generateContent(): void {
     console.log('🚀 Starting content generation...');
 
@@ -515,10 +436,9 @@ function generateContent(): void {
     const allContent: AllContent = {};
 
     languages.forEach(lang => {
-        console.log(`\n📝 Processing language: ${lang}`);
+        console.log(`\n🔍 Processing language: ${lang}`);
         allContent[lang] = processLanguage(lang);
 
-        // Log sections found
         const sections = Object.keys(allContent[lang]);
         if (sections.length > 0) {
             console.log(`   ✓ Sections: ${sections.join(', ')}`);
@@ -532,12 +452,10 @@ function generateContent(): void {
         }
     });
 
-    // Create output directory if it doesn't exist
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR, { recursive: true });
     }
 
-    // Write JSON file
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(allContent, null, 2), 'utf-8');
 
     console.log(`\n✅ Content generated successfully!`);
@@ -545,10 +463,8 @@ function generateContent(): void {
     console.log(`📊 Total languages: ${languages.length}`);
     console.log(`💾 File size: ${(fs.statSync(OUTPUT_FILE).size / 1024).toFixed(2)} KB`);
 
-    // Print validation results
     const validationResult = printValidationResults();
 
-    // Exit with error code if validation failed
     if (!validationResult.isValid) {
         console.log('\n❌ Build failed due to validation errors.');
         console.log('💡 Fix the errors above and try again.');

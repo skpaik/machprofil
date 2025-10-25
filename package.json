@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "tsx scripts/generate-content.ts",
+    "create:sample": "tsx scripts/generate-md-content.ts",
+    "prebuild": "tsx scripts/generate-json-content.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
