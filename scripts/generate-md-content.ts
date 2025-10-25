@@ -24,9 +24,12 @@ function randomFrom<T>(arr: T[]): T {
 // Mock DeepL-style translation (no API key needed)
 function fakeTranslate(text: string, lang: string): string {
     switch (lang) {
-        case "de": return `🇩🇪 (DE) ${text}`;
-        case "fr": return `🇫🇷 (FR) ${text}`;
-        default: return text; // English unchanged
+        case "de":
+            return `🇩🇪 (DE) ${text}`;
+        case "fr":
+            return `🇫🇷 (FR) ${text}`;
+        default:
+            return text; // English unchanged
     }
 }
 
@@ -140,31 +143,69 @@ ${body}
 `;
 }
 
+
+// =======================
+// Gallery GENERATOR
+// =======================
+function generateGallery(id: number, lang: string): string {
+    const title = `Senior Developer ${id} (${lang.toUpperCase()})`;
+    const image = `/images/gallery-${id}.jpg`;
+    const category = randomFrom(["Tutorial", "Guide", "Opinion"]);
+    const description = `Project ${id} overview in ${lang.toUpperCase()}.`;
+    const date = "2020-01-01";
+    const tags = ["tech", "javascript", "typescript", "react"].sort(() => 0.5 - Math.random()).slice(0, 2);
+    const featured = Math.random() > 0.8;
+    const body = generateParagraphs(3, lang);
+
+    return `---
+title: "${title}"
+image: "${image}"
+category: "${category}"
+description: "${description}"
+date: "${date}"
+tags: [${tags.map(t => `"${t}"`).join(", ")}]
+featured: ${featured}
+---
+
+${body}
+`;
+}
+
+
+function getOrCreateDir(lang: string, name: string) {
+    const dirName = path.join(OUTPUT_DIR, lang, name);
+
+    fs.mkdirSync(dirName, {recursive: true});
+
+    return dirName;
+}
+
 // =======================
 // MAIN
 // =======================
 for (const lang of LANGUAGES) {
-    const blogDir = path.join(OUTPUT_DIR, lang, "blog");
-    const projectDir = path.join(OUTPUT_DIR, lang, "projects");
-    const expDir = path.join(OUTPUT_DIR, lang, "experience");
-
-    fs.mkdirSync(blogDir, { recursive: true });
-    fs.mkdirSync(projectDir, { recursive: true });
-    fs.mkdirSync(expDir, { recursive: true });
+    const blogDir = getOrCreateDir(lang, "blog");
+    const projectDir = getOrCreateDir(lang, "projects");
+    const expDir = getOrCreateDir(lang, "experience");
+    const galleryDir = getOrCreateDir(lang, "gallery");
 
     for (let i = 1; i <= BLOG_COUNT; i++) {
         fs.writeFileSync(path.join(blogDir, `${i}.md`), generateBlog(i, lang), "utf8");
     }
 
-    for (let i = 1; i <= PROJECT_COUNT; i++) {
+    for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(projectDir, `${i}.md`), generateProject(i, lang), "utf8");
     }
 
-    for (let i = 1; i <= EXPERIENCE_COUNT; i++) {
+    for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(expDir, `${i}.md`), generateExperience(i, lang), "utf8");
     }
 
-    console.log(`✅ Generated ${BLOG_COUNT} blogs, ${PROJECT_COUNT} projects, ${EXPERIENCE_COUNT} experiences for ${lang}`);
+    for (let i = 1; i <= MAX_ITEM; i++) {
+        fs.writeFileSync(path.join(galleryDir, `${i}.md`), generateGallery(i, lang), "utf8");
+    }
+
+    console.log(`✅ Generated ${BLOG_COUNT} blogs, ${MAX_ITEM} projects, ${MAX_ITEM} experiences, ${MAX_ITEM} gallery for ${lang}`);
 }
 
 console.log("🎉 All multilingual content generated successfully!");
