@@ -6,9 +6,8 @@ import path from "path";
 // =======================
 const OUTPUT_DIR = path.join(__dirname, "../contents");
 const LANGUAGES = ["en", "de", "fr", "es", "jp"];       // Configurable
-const BLOG_COUNT = 512;                      // Configurable
-const PROJECT_COUNT = 128;                    // Configurable
-const EXPERIENCE_COUNT = 64;                 // Configurable
+const BLOG_COUNT = 3;                      // Configurable
+const MAX_ITEM = 3;                 // Configurable
 
 // =======================
 // HELPER FUNCTIONS
@@ -172,6 +171,58 @@ ${body}
 }
 
 
+// =======================
+// EDUCATION GENERATOR
+// =======================
+function generateEducation(id: number, lang: string): string {
+    const title = `Education ${id} (${lang.toUpperCase()})`;
+    const institution = randomFrom([
+        "Technical University Berlin",
+        "University of Munich",
+        "Humboldt University",
+        "RWTH Aachen",
+        "University of Hamburg"
+    ]);
+    const location = randomFrom([
+        "Berlin, Germany",
+        "Munich, Germany",
+        "Cologne, Germany",
+        "Hamburg, Germany"
+    ]);
+    const startYear = 2015 + (id % 5);
+    const endYear = startYear + 2;
+    const startDate = `${startYear}-10-01`;
+    const endDate = `${endYear}-09-30`;
+    const description = `Completed a degree in Computer Science with focus on ${randomFrom([
+        "Artificial Intelligence",
+        "Cloud Computing",
+        "Software Engineering",
+        "Data Science",
+        "Cybersecurity"
+    ])}.`;
+    const logo = `/images/education-${id}.png`;
+    const degree = randomFrom(["Bachelor's", "Master's", "Diploma", "PhD"]);
+    const grade = randomFrom(["1.3", "1.7", "2.0", "2.3"]);
+    const featured = Math.random() > 0.8;
+    const body = generateParagraphs(3, lang);
+
+    return `---
+title: "${title}"
+institution: "${institution}"
+location: "${location}"
+startDate: "${startDate}"
+endDate: "${endDate}"
+description: "${description}"
+logo: "${logo}"
+degree: "${degree}"
+grade: "${grade}"
+featured: ${featured}
+---
+
+${body}
+`;
+}
+
 function getOrCreateDir(lang: string, name: string) {
     const dirName = path.join(OUTPUT_DIR, lang, name);
 
@@ -186,6 +237,7 @@ function getOrCreateDir(lang: string, name: string) {
 for (const lang of LANGUAGES) {
     const blogDir = getOrCreateDir(lang, "blog");
     const projectDir = getOrCreateDir(lang, "projects");
+    const educationDir = getOrCreateDir(lang, "education");
     const expDir = getOrCreateDir(lang, "experience");
     const galleryDir = getOrCreateDir(lang, "gallery");
 
@@ -195,6 +247,10 @@ for (const lang of LANGUAGES) {
 
     for (let i = 1; i <= MAX_ITEM; i++) {
         fs.writeFileSync(path.join(projectDir, `${i}.md`), generateProject(i, lang), "utf8");
+    }
+
+    for (let i = 1; i <= MAX_ITEM; i++) {
+        fs.writeFileSync(path.join(educationDir, `${i}.md`), generateEducation(i, lang), "utf8");
     }
 
     for (let i = 1; i <= MAX_ITEM; i++) {
