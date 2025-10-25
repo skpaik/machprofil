@@ -1,14 +1,11 @@
 ---
-title: About Me
-order: 2
+name: "Alex Johnson"
+title: "Software Engineer"
+summary: "Experienced developer passionate about building scalable systems and mentoring others."
+location: "Berlin, Germany"
+email: "alex@example.com"
+phone: "+49 1522 1234567"
+website: "https://alexjohnson.dev"
+linkedin: "https://linkedin.com/in/alexjohnson"
+github: "https://github.com/alexjohnson"
 ---
-
-# About Me
-
-With over 5 years of experience in web development, I specialize in building scalable applications using React, Next.js, and TypeScript. I'm passionate about clean code, user experience, and continuous learning.
-
-## Skills
-
-- Frontend: React, Next.js, TypeScript, Tailwind CSS
-- Backend: Node.js, Python, PostgreSQL
-- Tools: Git, Docker, AWS
