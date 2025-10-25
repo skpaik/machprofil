@@ -8,6 +8,10 @@
   value: "+49 1522 1234567"
   label: "Mobile"
   
+- type: "Website"
+  value: "https://alexjohnson.dev"
+  label: "Website"
+  
 - type: "Address"
   value: "Berlin, Germany"
   
