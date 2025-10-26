@@ -260,6 +260,7 @@ function generateSkills(lang: string): string {
 # Skills for language: ${lang}
 ${yamlContent}
 ---
+NA
 `;
 }
 
@@ -292,6 +293,7 @@ ${skillsYaml ? `skills:\n${skillsYaml}` : ""}
 ${mediaYaml ? `media:\n${mediaYaml}` : ""}
 description: "${cert.description ?? ""}"
 ---
+NA
 `;
 }
 
@@ -324,6 +326,7 @@ summary: "${pub.summary ?? ""}"
 ${keywordsYaml ? `keywords:\n${keywordsYaml}` : ""}
 ${mediaYaml ? `media:\n${mediaYaml}` : ""}
 ---
+NA
 `;
 }
 
@@ -376,6 +379,7 @@ ${l.level ? `  level: "${l.level}"` : ""}`;
 # Languages for language: ${lang}
 ${yamlContent}
 ---
+NA
 `;
 }
 
@@ -397,6 +401,7 @@ function generateInterest(lang: string): string {
 items:
 ${yamlContent}
 ---
+NA
 `;
 }
 
@@ -436,6 +441,7 @@ function generateReferences(lang: string): string {
 # References for language: ${lang}
 ${yamlContent}
 ---
+NA
 `;
 }
 
@@ -459,6 +465,7 @@ function generateSocialLinks(lang: string): string {
 # Social Links for language: ${lang}
 ${yamlContent}
 ---
+NA
 `;
 }
 
@@ -484,6 +491,7 @@ function generateContacts(lang: string): string {
 # Contacts for language: ${lang}
 ${yamlContent}
 ---
+NA
 `;
 }
 
@@ -507,6 +515,7 @@ location: "${bio.location}"
 ${bio.dob ? `dob: "${bio.dob}"` : ""}
 ${bio.photo ? `photo: "${bio.photo}"` : ""}
 ---
+NA
 `;
 }
 

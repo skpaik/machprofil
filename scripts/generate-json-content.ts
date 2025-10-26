@@ -75,7 +75,7 @@ const FILENAME_PATTERNS: Record<string, RegExp> = {
     gallery: /^\d+\.md$/,
     info: /^[a-z-]+\.md$/,
     projects: /^\d+\.md$/,
-    publications: /^\d+\.md$/,
+    publication: /^\d+\.md$/,
 };
 
 const validationErrors: ValidationError[] = [];
