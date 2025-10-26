@@ -6,12 +6,13 @@ const repoName = 'machprofil';
 const nextConfig: NextConfig = {
     /* config options here */
     output: 'export',
-    distDir: "out",
+    distDir: "docs",
+    basePath: isProd ? `/${repoName}` : '',
+    assetPrefix: isProd ? `/${repoName}/` : '',
     images: {
         unoptimized: true,
     },
-    basePath: isProd ? `/${repoName}` : '',
-    assetPrefix: isProd ? `/${repoName}/` : '',
+    trailingSlash: true,
 };
 
 export default nextConfig;
