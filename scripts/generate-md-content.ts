@@ -306,7 +306,7 @@ function generatePublication(i: number, lang: string): string {
         title: `Publication Title ${i}`,
         authors: [`Author A${i}`, `Author B${i}`],
         publisher: `Publisher ${i}`,
-        date: `202${i}-06`,
+        date: `202${i}-06-01`,
         link: `https://example.com/publication/${i}`,
         doi: `10.1234/example-doi-${i}`,
         summary: `This is a brief summary of publication ${i} in ${lang}.`,
