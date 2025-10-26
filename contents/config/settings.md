@@ -1,6 +1,7 @@
-# Site Settings
-
-**Theme:** light
-**Template:** classic
-**Primary Color:** blue
-**Show Header Image:** true
+---
+siteName: GoribProfile
+defaultTemplate: modern
+defaultLanguage: en
+siteDescription: A markdown-powered portfolio and blog
+---
+NA
