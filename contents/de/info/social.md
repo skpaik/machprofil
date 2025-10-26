@@ -1,5 +1,5 @@
 ---
-# Social Links for language: en
+# Social Links for language: de
 - platform: "LinkedIn"
   url: "https://linkedin.com/in/alexjohnson"
   username: "alexjohnson"
