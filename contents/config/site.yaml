@@ -3,17 +3,25 @@ siteTitle: "LiteCMS"
 tagline: "Engineer. Creator. Problem Solver."
 author: "Sudipta Kumar Paik"
 description: "Full-stack developer specializing in React, Next.js, and modern web technologies"
-keywords: ["portfolio", "developer", "react", "nextjs", "typescript", "software engineer"]
+keywords:
+  [
+    "portfolio",
+    "developer",
+    "react",
+    "nextjs",
+    "typescript",
+    "software engineer",
+  ]
 baseUrl: "https://skpaik.github.io"
 language: "en"
 locale: "en-US"
 timezone: "Asia/Kolkata"
 
 # Theme Settings
-layout: "classic"   # classic, modern, creative
+layout: "classic" # classic, modern, creative
 colorScheme: "blue"
 fontFamily: "Inter"
-theme: "system"  # light, dark, system
+theme: "system" # light, dark, system
 
 # Assets
 favicon: "/favicon.ico"

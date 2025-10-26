@@ -1,4 +1,4 @@
-layout: "classic"   # classic, modern, creative
+layout: "classic" # classic, modern, creative
 colorScheme: "blue"
 fontFamily: "Inter"
 darkMode: true
