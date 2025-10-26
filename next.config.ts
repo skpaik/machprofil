@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
     /* config options here */
     output: 'export',
     distDir: "docs",
-    basePath: isProd ? `/${repoName}` : '',
-    assetPrefix: isProd ? `/${repoName}/` : '',
+    basePath: '/machprofil',
+    assetPrefix: '/machprofil/',
     images: {
         unoptimized: true,
     },
