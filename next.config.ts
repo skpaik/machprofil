@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
+
 const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'machprofil'; // your GitHub repo name
+const repoName = 'machprofil';
 
 const nextConfig: NextConfig = {
     /* config options here */
-    output: 'export',          // Enables `next export` static HTML
+    output: 'export',
     basePath: isProd ? `/${repoName}` : '',
     assetPrefix: isProd ? `/${repoName}/` : '',
 };
