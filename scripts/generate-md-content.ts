@@ -246,23 +246,27 @@ function generateSkills(lang: string): string {
         { category: "Languages", items: ["English", "German", "French"] },
     ];
 
-    // Convert categories to YAML
-    const yamlContent = categories
+    // Convert categories to properly indented YAML under skill_list
+    const yamlSkillList = categories
         .map(
             (cat) =>
-                `- category: "${cat.category}"\n  items:\n${cat.items
-                    .map((item) => `    - "${item}"`)
+                `  - category: "${cat.category}"\n    items:\n${cat.items
+                    .map((item) => `      - "${item}"`)
                     .join("\n")}`
         )
         .join("\n");
 
+    // Full markdown file content
     return `---
-# Skills for language: ${lang}
-${yamlContent}
+title: "Skills for language: ${lang}"
+skill_list:
+${yamlSkillList}
 ---
+
 NA
 `;
 }
+
 
 
 function generateCertification(i: number, lang: string): string {
@@ -361,24 +365,27 @@ function generateLanguages(lang: string): string {
         },
     ];
 
-    // Convert to YAML
-    const yamlContent = languages
+    // Convert to properly indented YAML
+    const yamlLanguages = languages
         .map((l) => {
-            const testsYaml = l.tests?.map((t) => `    - "${t}"`).join("\n") ?? "";
-            return `- name: "${l.name}"
-  read: "${l.read}"
-  write: "${l.write}"
-  speak: "${l.speak}"
-  listen: "${l.listen}"
-${testsYaml ? `  tests:\n${testsYaml}` : ""}
-${l.level ? `  level: "${l.level}"` : ""}`;
+            const testsYaml = l.tests
+                ? `    tests:\n${l.tests.map((t) => `      - "${t}"`).join("\n")}\n`
+                : "";
+            return `  - name: "${l.name}"
+    read: "${l.read}"
+    write: "${l.write}"
+    speak: "${l.speak}"
+    listen: "${l.listen}"
+${testsYaml}${l.level ? `    level: "${l.level}"\n` : ""}`;
         })
-        .join("\n");
+        .join("");
 
     return `---
-# Languages for language: ${lang}
-${yamlContent}
+title: "Languages for language: ${lang}"
+language_list:
+${yamlLanguages}
 ---
+
 NA
 `;
 }
@@ -424,23 +431,27 @@ function generateReferences(lang: string): string {
         },
     ];
 
-    // Convert references to YAML
-    const yamlContent = references
-        .map(
-            (ref) => `- name: "${ref.name}"
-  position: "${ref.position}"
-  organization: "${ref.organization}"
-  ${ref.email ? `email: "${ref.email}"` : ""}
-  ${ref.phone ? `phone: "${ref.phone}"` : ""}
-  ${ref.relation ? `relation: "${ref.relation}"` : ""}
-  ${ref.notes ? `notes: "${ref.notes}"` : ""}`
-        )
+    const yamlReferences = references
+        .map((ref) => {
+            const lines = [
+                `  - name: "${ref.name}"`,
+                `    position: "${ref.position}"`,
+                `    organization: "${ref.organization}"`,
+                ref.email ? `    email: "${ref.email}"` : null,
+                ref.phone ? `    phone: "${ref.phone}"` : null,
+                ref.relation ? `    relation: "${ref.relation}"` : null,
+                ref.notes ? `    notes: "${ref.notes}"` : null,
+            ].filter(Boolean);
+            return lines.join("\n");
+        })
         .join("\n");
 
     return `---
-# References for language: ${lang}
-${yamlContent}
+title: "References for language: ${lang}"
+reference_list:
+${yamlReferences}
 ---
+
 NA
 `;
 }
@@ -452,19 +463,24 @@ function generateSocialLinks(lang: string): string {
         { platform: "Twitter", url: "https://twitter.com/alexjohnson" },
     ];
 
-    const yamlContent = links
-        .map(
-            (link) => `- platform: "${link.platform}"
-  url: "${link.url}"
-  ${link.username ? `username: "${link.username}"` : ""}
-  ${link.description ? `description: "${link.description}"` : ""}`
-        )
+    const yamlLinks = links
+        .map((link) => {
+            const lines = [
+                `  - platform: "${link.platform}"`,
+                `    url: "${link.url}"`,
+                link.username ? `    username: "${link.username}"` : null,
+                link.description ? `    description: "${link.description}"` : null,
+            ].filter(Boolean);
+            return lines.join("\n");
+        })
         .join("\n");
 
     return `---
-# Social Links for language: ${lang}
-${yamlContent}
+title: "Social Links for language: ${lang}"
+social_links:
+${yamlLinks}
 ---
+
 NA
 `;
 }
@@ -478,19 +494,24 @@ function generateContacts(lang: string): string {
         { type: "Address", value: "Berlin, Germany", description: "Current residence" },
     ];
 
-    const yamlContent = contacts
-        .map(
-            (c) => `- type: "${c.type}"
-  value: "${c.value}"
-  ${c.label ? `label: "${c.label}"` : ""}
-  ${c.description ? `description: "${c.description}"` : ""}`
-        )
+    const yamlContacts = contacts
+        .map((c) => {
+            const lines = [
+                `  - type: "${c.type}"`,
+                `    value: "${c.value}"`,
+                c.label ? `    label: "${c.label}"` : null,
+                c.description ? `    description: "${c.description}"` : null,
+            ].filter(Boolean);
+            return lines.join("\n");
+        })
         .join("\n");
 
     return `---
-# Contacts for language: ${lang}
-${yamlContent}
+title: "Contacts for language: ${lang}"
+contact_list:
+${yamlContacts}
 ---
+
 NA
 `;
 }
