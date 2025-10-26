@@ -7,4 +7,5 @@ location: "Berlin, Germany"
 dob: "1990-05-12"
 photo: "https://example.com/photos/alex.jpg"
 ---
+
 NA
