@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-npm run start:dev
+#npm install
+npm run build
+#npm run export
 
-
-# npm run test:filters
-# npm run test
-# npm run test:e2e
+rm -rf docs/*
+cp -r out/* docs/
+git add docs
+git commit -m "Deploy Next.js static export"
+git push
