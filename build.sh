@@ -11,18 +11,18 @@ DOCS_DIR="docs"
 echo "📦 Building Next.js in production mode..."
 NODE_ENV=production npm run build
 
-# Next.js output: export to 'out/' automatically because of output: 'export'
+# Next.js output: export to 'dist/' automatically because of output: 'export'
 # Determine if basePath folder exists
-BASE_PATH_DIR="out/$REPO_NAME"
+BASE_PATH_DIR="dist/$REPO_NAME"
 
 if [ -d "$BASE_PATH_DIR" ]; then
   echo "📂 Flattening basePath folder to $DOCS_DIR..."
   rm -rf $DOCS_DIR/*
   cp -r $BASE_PATH_DIR/* $DOCS_DIR/
 else
-  echo "📂 Copying out/ to $DOCS_DIR..."
+  echo "📂 Copying dist/ to $DOCS_DIR..."
   rm -rf $DOCS_DIR/*
-  cp -r out/* $DOCS_DIR/
+  cp -r dist/* $DOCS_DIR/
 fi
 
 # Ensure .nojekyll to disable Jekyll processing
