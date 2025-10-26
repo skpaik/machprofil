@@ -8,6 +8,7 @@
     "create:json": "tsx scripts/generate-json-content.ts",
     "build": "next build",
     "start": "next start",
+    "export": "next build && next export -o docs",
     "lint": "eslint",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown ."
@@ -19,7 +20,7 @@
   },
   "devDependencies": {
     "typescript": "^5",
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "gray-matter": "^4.0.3",
@@ -28,13 +29,9 @@
     "tsx": "^4.20.6",
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
-    "autoprefixer": "10.4.16",
-    "postcss": "8.4.31",
-    "@types/bcrypt": "^5.0.2",
-    "@vercel/style-guide": "^5.1.0",
-    "dotenv": "^16.3.1",
-    "eslint-config-prettier": "9.1.0",
-    "prettier": "^3.1.1",
-    "prettier-plugin-tailwindcss": "0.5.11"
+    "autoprefixer": "10.4.21",
+    "eslint-config-prettier": "10.1.8",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "0.7.1"
   }
 }
