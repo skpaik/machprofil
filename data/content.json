@@ -1,23 +1,356 @@
 {
   "config": {},
+  "de": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Blog Post 1 (DE)",
+        "date": "2024-02-24",
+        "author": "Jane Smith",
+        "excerpt": "A short summary for blog post 1 in DE.",
+        "tags": [
+          "tech",
+          "javascript"
+        ],
+        "image": "/images/blog-1.jpg",
+        "featured": false,
+        "readTime": 11,
+        "category": "Tutorial",
+        "content": "🇩🇪 (DE) React JavaScript Node.js TypeScript Next.js TypeScript Node.js Cloud JavaScript Architecture.\n\n🇩🇪 (DE) Cloud Next.js Architecture Cloud Architecture Node.js Architecture TypeScript React Node.js.\n\n🇩🇪 (DE) Cloud React Node.js Architecture Next.js React Cloud Cloud React Cloud.\n\n🇩🇪 (DE) Architecture JavaScript Architecture Next.js Architecture Architecture React Next.js Architecture Architecture.\n\n🇩🇪 (DE) Node.js Next.js Cloud Next.js TypeScript React Architecture Cloud JavaScript TypeScript."
+      }
+    ],
+    "certificate": [
+      {
+        "slug": "1",
+        "order": 1,
+        "name": "Certification 1",
+        "organization": "Organization 1",
+        "issueDate": "2021-01",
+        "expirationDate": "2023-01",
+        "credentialId": "CERT-1001",
+        "credentialUrl": "https://example.com/certifications/1",
+        "skills": [
+          "Skill A",
+          "Skill B",
+          "Skill C"
+        ],
+        "media": [
+          "https://example.com/media/cert-1.jpg"
+        ],
+        "description": "Description of certification 1 in de",
+        "content": "NA"
+      }
+    ],
+    "education": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Education 1 (DE)",
+        "institution": "Humboldt University",
+        "location": "Berlin, Germany",
+        "startDate": "2016-10-01",
+        "endDate": "2018-09-30",
+        "description": "Completed a degree in Computer Science with focus on Artificial Intelligence.",
+        "logo": "/images/education-1.png",
+        "degree": "Diploma",
+        "grade": "2.3",
+        "featured": false,
+        "content": "🇩🇪 (DE) Cloud Node.js React Architecture React TypeScript TypeScript TypeScript React Next.js.\n\n🇩🇪 (DE) Next.js Next.js React JavaScript React TypeScript Architecture Architecture JavaScript JavaScript.\n\n🇩🇪 (DE) React Node.js TypeScript Cloud Cloud Cloud Cloud Cloud TypeScript Architecture."
+      }
+    ],
+    "experience": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (DE)",
+        "organization": "Tech Corp 1",
+        "location": "Berlin, Germany",
+        "current": false,
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "website": "https://company1.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "description": "🇩🇪 (DE) Led development team for Tech Corp 1.",
+        "responsibilities": [
+          "Responsibility 1 for experience 1",
+          "Responsibility 2 for experience 1",
+          "Responsibility 3 for experience 1"
+        ],
+        "logo": "/images/organization-logo-1.png",
+        "content": "🇩🇪 (DE) TypeScript JavaScript Node.js JavaScript Cloud React JavaScript TypeScript Node.js TypeScript.\n\n🇩🇪 (DE) Architecture JavaScript Node.js Node.js Cloud React JavaScript Node.js JavaScript Cloud.\n\n🇩🇪 (DE) JavaScript Cloud JavaScript TypeScript React TypeScript React Architecture React Architecture."
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (DE)",
+        "image": "/images/gallery-1.jpg",
+        "category": "Opinion",
+        "description": "Project 1 overview in DE.",
+        "date": "2020-01-01",
+        "tags": [
+          "typescript",
+          "javascript"
+        ],
+        "featured": false,
+        "content": "🇩🇪 (DE) Architecture Node.js Node.js JavaScript Architecture Cloud JavaScript Cloud TypeScript Architecture.\n\n🇩🇪 (DE) TypeScript Node.js TypeScript Architecture Architecture React Cloud Next.js TypeScript Cloud.\n\n🇩🇪 (DE) React Next.js Next.js Architecture React Next.js React Architecture Node.js Next.js."
+      }
+    ],
+    "info": {
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 0,
+          "fullName": "Alex Johnson",
+          "title": "Software Engineer",
+          "summary": "Experienced developer passionate about building scalable systems and mentoring others.",
+          "location": "Berlin, Germany",
+          "dob": "1990-05-12",
+          "photo": "https://example.com/photos/alex.jpg",
+          "content": "NA"
+        }
+      ],
+      "contact": [
+        {
+          "0": {
+            "type": "Email",
+            "value": "alex@example.com",
+            "label": "Work"
+          },
+          "1": {
+            "type": "Phone",
+            "value": "+49 1522 1234567",
+            "label": "Mobile"
+          },
+          "2": {
+            "type": "Website",
+            "value": "https://alexjohnson.dev",
+            "label": "Website"
+          },
+          "3": {
+            "type": "Address",
+            "value": "Berlin, Germany",
+            "description": "Current residence"
+          },
+          "slug": "contact",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "interest": [
+        {
+          "slug": "interest",
+          "order": 0,
+          "items": [
+            "Photography",
+            "Traveling",
+            "Open-source projects",
+            "Reading",
+            "Music",
+            "Sports"
+          ],
+          "content": "NA"
+        }
+      ],
+      "languages": [
+        {
+          "0": {
+            "name": "English",
+            "read": "Fluent",
+            "write": "Fluent",
+            "speak": "Fluent",
+            "listen": "Fluent",
+            "tests": [
+              "IELTS",
+              "TOEFL"
+            ],
+            "level": "C1"
+          },
+          "1": {
+            "name": "German",
+            "read": "Intermediate",
+            "write": "Intermediate",
+            "speak": "Intermediate",
+            "listen": "Intermediate",
+            "tests": [
+              "Goethe B2",
+              "Telc B2"
+            ],
+            "level": "B2"
+          },
+          "2": {
+            "name": "French",
+            "read": "Good",
+            "write": "Good",
+            "speak": "Intermediate",
+            "listen": "Good",
+            "level": "B1"
+          },
+          "slug": "languages",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "reference": [
+        {
+          "0": {
+            "name": "Dr. Laura Schmidt",
+            "position": "Engineering Manager",
+            "organization": "TechCorp GmbH",
+            "email": "laura.schmidt@techcorp.de",
+            "phone": "+49 1522 111222",
+            "relation": "Manager at TechCorp"
+          },
+          "1": {
+            "name": "Prof. John Doe",
+            "position": "Professor of Computer Science",
+            "organization": "University of Hamburg",
+            "email": "j.doe@uni-hamburg.de",
+            "relation": "Thesis Supervisor"
+          },
+          "slug": "reference",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "skills": [
+        {
+          "0": {
+            "category": "Programming",
+            "items": [
+              "Python",
+              "TypeScript",
+              "Java",
+              "C++"
+            ]
+          },
+          "1": {
+            "category": "Tools & Cloud",
+            "items": [
+              "AWS",
+              "Docker",
+              "Kubernetes"
+            ]
+          },
+          "2": {
+            "category": "Soft Skills",
+            "items": [
+              "Leadership",
+              "Communication",
+              "Mentoring"
+            ]
+          },
+          "3": {
+            "category": "Design & Creative",
+            "items": [
+              "Photoshop",
+              "Figma",
+              "Adobe Illustrator"
+            ]
+          },
+          "4": {
+            "category": "Languages",
+            "items": [
+              "English",
+              "German",
+              "French"
+            ]
+          },
+          "slug": "skills",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "social": [
+        {
+          "0": {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/in/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "1": {
+            "platform": "GitHub",
+            "url": "https://github.com/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "2": {
+            "platform": "Twitter",
+            "url": "https://twitter.com/alexjohnson"
+          },
+          "slug": "social",
+          "order": 0,
+          "content": "NA"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Project 1 (DE)",
+        "description": "Project 1 overview in DE.",
+        "technologies": [
+          "React",
+          "Node.js"
+        ],
+        "link": "https://example.com/projects/1",
+        "github": "https://github.com/user/project-1",
+        "date": "2024-07-04",
+        "image": "/images/project-1.jpg",
+        "status": "completed",
+        "featured": false,
+        "content": "🇩🇪 (DE) Architecture React TypeScript Node.js Architecture React JavaScript React Node.js Next.js.\n\n🇩🇪 (DE) Node.js Next.js Cloud Architecture Next.js Cloud Node.js Next.js Cloud Next.js.\n\n🇩🇪 (DE) Cloud JavaScript TypeScript Next.js JavaScript Architecture React Next.js Cloud Cloud.\n\n🇩🇪 (DE) TypeScript Next.js JavaScript Node.js JavaScript Cloud Architecture Next.js Next.js TypeScript."
+      }
+    ],
+    "publication": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Publication Title 1",
+        "authors": [
+          "Author A1",
+          "Author B1"
+        ],
+        "publisher": "Publisher 1",
+        "date": "2021-06",
+        "link": "https://example.com/publication/1",
+        "doi": "10.1234/example-doi-1",
+        "summary": "This is a brief summary of publication 1 in de.",
+        "keywords": [
+          "Keyword1",
+          "Keyword2",
+          "Keyword3"
+        ],
+        "media": [
+          "https://example.com/media/pub-1.jpg"
+        ],
+        "content": "NA"
+      }
+    ]
+  },
   "en": {
     "blog": [
       {
         "slug": "1",
         "order": 1,
         "title": "My Blog Post 1 (EN)",
-        "date": "2024-11-10",
-        "author": "Jane Smith",
+        "date": "2024-07-15",
+        "author": "Alex Johnson",
         "excerpt": "A short summary for blog post 1 in EN.",
         "tags": [
-          "react",
+          "tech",
           "javascript"
         ],
         "image": "/images/blog-1.jpg",
         "featured": false,
-        "readTime": 9,
-        "category": "Tutorial",
-        "content": "Node.js Cloud Next.js Architecture Next.js Architecture Cloud React Node.js JavaScript.\n\nJavaScript TypeScript React Next.js Architecture Cloud Node.js React TypeScript Next.js.\n\nNext.js TypeScript Node.js JavaScript JavaScript Cloud React React TypeScript Architecture.\n\nCloud TypeScript Node.js TypeScript JavaScript JavaScript Architecture Architecture Next.js Architecture.\n\nNext.js Architecture Architecture Cloud Next.js Node.js JavaScript Architecture TypeScript React."
+        "readTime": 10,
+        "category": "Opinion",
+        "content": "React React Node.js TypeScript Architecture JavaScript React React Node.js Cloud.\n\nTypeScript Node.js Cloud Cloud Next.js Cloud Next.js React Node.js Cloud.\n\nNode.js TypeScript Next.js TypeScript Node.js JavaScript TypeScript JavaScript React React.\n\nReact Architecture Architecture Cloud Cloud TypeScript Next.js Next.js Next.js Architecture.\n\nReact Architecture TypeScript Next.js React React JavaScript TypeScript JavaScript Architecture."
       }
     ],
     "certificate": [
@@ -47,16 +380,16 @@
         "slug": "1",
         "order": 1,
         "title": "Education 1 (EN)",
-        "institution": "University of Hamburg",
+        "institution": "RWTH Aachen",
         "location": "Cologne, Germany",
         "startDate": "2016-10-01",
         "endDate": "2018-09-30",
-        "description": "Completed a degree in Computer Science with focus on Cloud Computing.",
+        "description": "Completed a degree in Computer Science with focus on Artificial Intelligence.",
         "logo": "/images/education-1.png",
-        "degree": "Master's",
+        "degree": "Diploma",
         "grade": "1.3",
         "featured": false,
-        "content": "Node.js Architecture Cloud Cloud TypeScript JavaScript TypeScript Next.js Architecture JavaScript.\n\nNode.js React JavaScript Architecture Next.js Next.js JavaScript JavaScript TypeScript TypeScript.\n\nNext.js Next.js Node.js React Next.js Node.js JavaScript JavaScript TypeScript TypeScript."
+        "content": "TypeScript React JavaScript Node.js JavaScript Cloud Architecture TypeScript Next.js Cloud.\n\nNext.js Next.js Cloud Node.js Next.js JavaScript Next.js Next.js Cloud JavaScript.\n\nArchitecture Cloud Next.js TypeScript Next.js Cloud Next.js Node.js Architecture Architecture."
       }
     ],
     "experience": [
@@ -81,7 +414,7 @@
           "Responsibility 3 for experience 1"
         ],
         "logo": "/images/organization-logo-1.png",
-        "content": "TypeScript TypeScript JavaScript Cloud Architecture Cloud React Architecture React Next.js.\n\nArchitecture Cloud React Node.js Next.js React Node.js Node.js Architecture TypeScript.\n\nArchitecture Cloud React Cloud JavaScript Cloud React Architecture JavaScript Architecture."
+        "content": "Next.js Node.js React TypeScript React TypeScript TypeScript Architecture JavaScript Node.js.\n\nNode.js JavaScript Next.js JavaScript Architecture Cloud TypeScript Next.js Node.js React.\n\nTypeScript Next.js Architecture JavaScript JavaScript Node.js JavaScript Architecture Cloud TypeScript."
       }
     ],
     "gallery": [
@@ -94,11 +427,11 @@
         "description": "Project 1 overview in EN.",
         "date": "2020-01-01",
         "tags": [
-          "javascript",
-          "tech"
+          "tech",
+          "javascript"
         ],
         "featured": false,
-        "content": "Node.js Cloud TypeScript Cloud Cloud Architecture Cloud Architecture Node.js TypeScript.\n\nNode.js React Cloud JavaScript Node.js JavaScript Architecture React React Architecture.\n\nJavaScript JavaScript Node.js Next.js Architecture Next.js Architecture React Architecture TypeScript."
+        "content": "TypeScript Next.js Architecture Node.js Next.js Cloud TypeScript React Next.js TypeScript.\n\nCloud React JavaScript Next.js React Cloud Next.js TypeScript Next.js Node.js.\n\nJavaScript Cloud Architecture Next.js Cloud Cloud TypeScript Node.js JavaScript React."
       }
     ],
     "info": {
@@ -295,16 +628,16 @@
         "title": "My Project 1 (EN)",
         "description": "Project 1 overview in EN.",
         "technologies": [
-          "Next.js",
-          "TypeScript"
+          "TypeScript",
+          "React"
         ],
         "link": "https://example.com/projects/1",
         "github": "https://github.com/user/project-1",
-        "date": "2024-06-20",
+        "date": "2024-10-05",
         "image": "/images/project-1.jpg",
-        "status": "completed",
+        "status": "planned",
         "featured": false,
-        "content": "TypeScript JavaScript Architecture Cloud Architecture JavaScript JavaScript Next.js TypeScript Next.js.\n\nNode.js TypeScript React Next.js Architecture Next.js Next.js Next.js TypeScript Cloud.\n\nNode.js React React JavaScript React Cloud Next.js Node.js JavaScript Next.js.\n\nTypeScript TypeScript JavaScript JavaScript React JavaScript Cloud Node.js Next.js Architecture."
+        "content": "Node.js Next.js React React JavaScript JavaScript Node.js Node.js Next.js Cloud.\n\nReact Cloud TypeScript Cloud Cloud Cloud Next.js React Cloud Next.js.\n\nReact Cloud Node.js Next.js React Node.js Cloud TypeScript Architecture Architecture.\n\nTypeScript TypeScript Architecture React React Cloud React React Cloud React."
       }
     ],
     "publication": [
@@ -321,6 +654,1005 @@
         "link": "https://example.com/publication/1",
         "doi": "10.1234/example-doi-1",
         "summary": "This is a brief summary of publication 1 in en.",
+        "keywords": [
+          "Keyword1",
+          "Keyword2",
+          "Keyword3"
+        ],
+        "media": [
+          "https://example.com/media/pub-1.jpg"
+        ],
+        "content": "NA"
+      }
+    ]
+  },
+  "es": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Blog Post 1 (ES)",
+        "date": "2024-10-11",
+        "author": "Alex Johnson",
+        "excerpt": "A short summary for blog post 1 in ES.",
+        "tags": [
+          "react",
+          "tech"
+        ],
+        "image": "/images/blog-1.jpg",
+        "featured": false,
+        "readTime": 4,
+        "category": "Guide",
+        "content": "JavaScript Next.js Next.js Architecture Next.js TypeScript JavaScript Cloud Node.js TypeScript.\n\nJavaScript Cloud Architecture Architecture Cloud Cloud TypeScript React Cloud Architecture.\n\nNext.js JavaScript Next.js Architecture Node.js Architecture Architecture Next.js JavaScript Next.js.\n\nJavaScript Node.js Architecture Cloud Architecture Node.js React TypeScript JavaScript Cloud.\n\nArchitecture Architecture TypeScript TypeScript Node.js JavaScript Architecture JavaScript React React."
+      }
+    ],
+    "certificate": [
+      {
+        "slug": "1",
+        "order": 1,
+        "name": "Certification 1",
+        "organization": "Organization 1",
+        "issueDate": "2021-01",
+        "expirationDate": "2023-01",
+        "credentialId": "CERT-1001",
+        "credentialUrl": "https://example.com/certifications/1",
+        "skills": [
+          "Skill A",
+          "Skill B",
+          "Skill C"
+        ],
+        "media": [
+          "https://example.com/media/cert-1.jpg"
+        ],
+        "description": "Description of certification 1 in es",
+        "content": "NA"
+      }
+    ],
+    "education": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Education 1 (ES)",
+        "institution": "Technical University Berlin",
+        "location": "Munich, Germany",
+        "startDate": "2016-10-01",
+        "endDate": "2018-09-30",
+        "description": "Completed a degree in Computer Science with focus on Cybersecurity.",
+        "logo": "/images/education-1.png",
+        "degree": "Master's",
+        "grade": "2.0",
+        "featured": false,
+        "content": "React TypeScript Node.js JavaScript JavaScript React Next.js React JavaScript JavaScript.\n\nReact JavaScript TypeScript TypeScript TypeScript TypeScript Node.js Cloud Cloud Node.js.\n\nJavaScript React Cloud TypeScript Node.js Architecture React Node.js Next.js TypeScript."
+      }
+    ],
+    "experience": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (ES)",
+        "organization": "Tech Corp 1",
+        "location": "Berlin, Germany",
+        "current": false,
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "website": "https://company1.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "description": "Led development team for Tech Corp 1.",
+        "responsibilities": [
+          "Responsibility 1 for experience 1",
+          "Responsibility 2 for experience 1",
+          "Responsibility 3 for experience 1"
+        ],
+        "logo": "/images/organization-logo-1.png",
+        "content": "Next.js React Node.js Cloud Next.js Architecture JavaScript TypeScript JavaScript Architecture.\n\nArchitecture Next.js JavaScript JavaScript React Node.js Cloud Node.js React JavaScript.\n\nArchitecture Architecture Node.js Node.js Architecture Node.js Next.js Cloud Cloud TypeScript."
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (ES)",
+        "image": "/images/gallery-1.jpg",
+        "category": "Opinion",
+        "description": "Project 1 overview in ES.",
+        "date": "2020-01-01",
+        "tags": [
+          "react",
+          "typescript"
+        ],
+        "featured": true,
+        "content": "Next.js Cloud React React JavaScript Architecture JavaScript Next.js TypeScript React.\n\nReact Node.js Node.js Node.js React JavaScript TypeScript Architecture React Cloud.\n\nTypeScript React TypeScript TypeScript JavaScript Architecture TypeScript React Node.js TypeScript."
+      }
+    ],
+    "info": {
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 0,
+          "fullName": "Alex Johnson",
+          "title": "Software Engineer",
+          "summary": "Experienced developer passionate about building scalable systems and mentoring others.",
+          "location": "Berlin, Germany",
+          "dob": "1990-05-12",
+          "photo": "https://example.com/photos/alex.jpg",
+          "content": "NA"
+        }
+      ],
+      "contact": [
+        {
+          "0": {
+            "type": "Email",
+            "value": "alex@example.com",
+            "label": "Work"
+          },
+          "1": {
+            "type": "Phone",
+            "value": "+49 1522 1234567",
+            "label": "Mobile"
+          },
+          "2": {
+            "type": "Website",
+            "value": "https://alexjohnson.dev",
+            "label": "Website"
+          },
+          "3": {
+            "type": "Address",
+            "value": "Berlin, Germany",
+            "description": "Current residence"
+          },
+          "slug": "contact",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "interest": [
+        {
+          "slug": "interest",
+          "order": 0,
+          "items": [
+            "Photography",
+            "Traveling",
+            "Open-source projects",
+            "Reading",
+            "Music",
+            "Sports"
+          ],
+          "content": "NA"
+        }
+      ],
+      "languages": [
+        {
+          "0": {
+            "name": "English",
+            "read": "Fluent",
+            "write": "Fluent",
+            "speak": "Fluent",
+            "listen": "Fluent",
+            "tests": [
+              "IELTS",
+              "TOEFL"
+            ],
+            "level": "C1"
+          },
+          "1": {
+            "name": "German",
+            "read": "Intermediate",
+            "write": "Intermediate",
+            "speak": "Intermediate",
+            "listen": "Intermediate",
+            "tests": [
+              "Goethe B2",
+              "Telc B2"
+            ],
+            "level": "B2"
+          },
+          "2": {
+            "name": "French",
+            "read": "Good",
+            "write": "Good",
+            "speak": "Intermediate",
+            "listen": "Good",
+            "level": "B1"
+          },
+          "slug": "languages",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "reference": [
+        {
+          "0": {
+            "name": "Dr. Laura Schmidt",
+            "position": "Engineering Manager",
+            "organization": "TechCorp GmbH",
+            "email": "laura.schmidt@techcorp.de",
+            "phone": "+49 1522 111222",
+            "relation": "Manager at TechCorp"
+          },
+          "1": {
+            "name": "Prof. John Doe",
+            "position": "Professor of Computer Science",
+            "organization": "University of Hamburg",
+            "email": "j.doe@uni-hamburg.de",
+            "relation": "Thesis Supervisor"
+          },
+          "slug": "reference",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "skills": [
+        {
+          "0": {
+            "category": "Programming",
+            "items": [
+              "Python",
+              "TypeScript",
+              "Java",
+              "C++"
+            ]
+          },
+          "1": {
+            "category": "Tools & Cloud",
+            "items": [
+              "AWS",
+              "Docker",
+              "Kubernetes"
+            ]
+          },
+          "2": {
+            "category": "Soft Skills",
+            "items": [
+              "Leadership",
+              "Communication",
+              "Mentoring"
+            ]
+          },
+          "3": {
+            "category": "Design & Creative",
+            "items": [
+              "Photoshop",
+              "Figma",
+              "Adobe Illustrator"
+            ]
+          },
+          "4": {
+            "category": "Languages",
+            "items": [
+              "English",
+              "German",
+              "French"
+            ]
+          },
+          "slug": "skills",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "social": [
+        {
+          "0": {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/in/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "1": {
+            "platform": "GitHub",
+            "url": "https://github.com/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "2": {
+            "platform": "Twitter",
+            "url": "https://twitter.com/alexjohnson"
+          },
+          "slug": "social",
+          "order": 0,
+          "content": "NA"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Project 1 (ES)",
+        "description": "Project 1 overview in ES.",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "link": "https://example.com/projects/1",
+        "github": "https://github.com/user/project-1",
+        "date": "2024-05-07",
+        "image": "/images/project-1.jpg",
+        "status": "planned",
+        "featured": false,
+        "content": "Architecture Next.js Node.js Cloud Cloud Architecture Node.js TypeScript TypeScript Cloud.\n\nReact Architecture Cloud Architecture Node.js Cloud Cloud Node.js Cloud TypeScript.\n\nTypeScript Cloud TypeScript React Next.js Node.js Cloud JavaScript TypeScript TypeScript.\n\nJavaScript Cloud JavaScript Next.js Architecture Cloud TypeScript TypeScript Next.js Node.js."
+      }
+    ],
+    "publication": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Publication Title 1",
+        "authors": [
+          "Author A1",
+          "Author B1"
+        ],
+        "publisher": "Publisher 1",
+        "date": "2021-06",
+        "link": "https://example.com/publication/1",
+        "doi": "10.1234/example-doi-1",
+        "summary": "This is a brief summary of publication 1 in es.",
+        "keywords": [
+          "Keyword1",
+          "Keyword2",
+          "Keyword3"
+        ],
+        "media": [
+          "https://example.com/media/pub-1.jpg"
+        ],
+        "content": "NA"
+      }
+    ]
+  },
+  "fr": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Blog Post 1 (FR)",
+        "date": "2024-09-20",
+        "author": "Jane Smith",
+        "excerpt": "A short summary for blog post 1 in FR.",
+        "tags": [
+          "javascript",
+          "typescript"
+        ],
+        "image": "/images/blog-1.jpg",
+        "featured": false,
+        "readTime": 6,
+        "category": "Tutorial",
+        "content": "🇫🇷 (FR) Next.js React Architecture React JavaScript Node.js Node.js Node.js React Cloud.\n\n🇫🇷 (FR) Cloud Architecture TypeScript Architecture JavaScript JavaScript Cloud TypeScript Cloud React.\n\n🇫🇷 (FR) Next.js Architecture TypeScript Node.js Architecture React Node.js Architecture JavaScript JavaScript.\n\n🇫🇷 (FR) TypeScript TypeScript Node.js Node.js TypeScript Architecture Cloud Node.js Architecture React.\n\n🇫🇷 (FR) Node.js Node.js Architecture Architecture Cloud Cloud Node.js Architecture Architecture JavaScript."
+      }
+    ],
+    "certificate": [
+      {
+        "slug": "1",
+        "order": 1,
+        "name": "Certification 1",
+        "organization": "Organization 1",
+        "issueDate": "2021-01",
+        "expirationDate": "2023-01",
+        "credentialId": "CERT-1001",
+        "credentialUrl": "https://example.com/certifications/1",
+        "skills": [
+          "Skill A",
+          "Skill B",
+          "Skill C"
+        ],
+        "media": [
+          "https://example.com/media/cert-1.jpg"
+        ],
+        "description": "Description of certification 1 in fr",
+        "content": "NA"
+      }
+    ],
+    "education": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Education 1 (FR)",
+        "institution": "University of Munich",
+        "location": "Berlin, Germany",
+        "startDate": "2016-10-01",
+        "endDate": "2018-09-30",
+        "description": "Completed a degree in Computer Science with focus on Data Science.",
+        "logo": "/images/education-1.png",
+        "degree": "Diploma",
+        "grade": "1.3",
+        "featured": false,
+        "content": "🇫🇷 (FR) Next.js Cloud Node.js Node.js TypeScript Node.js Architecture JavaScript TypeScript TypeScript.\n\n🇫🇷 (FR) Cloud React Architecture JavaScript Node.js Next.js Architecture Next.js Node.js Node.js.\n\n🇫🇷 (FR) Architecture React Node.js TypeScript TypeScript Node.js Architecture JavaScript JavaScript JavaScript."
+      }
+    ],
+    "experience": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (FR)",
+        "organization": "Tech Corp 1",
+        "location": "Berlin, Germany",
+        "current": false,
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "website": "https://company1.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "description": "🇫🇷 (FR) Led development team for Tech Corp 1.",
+        "responsibilities": [
+          "Responsibility 1 for experience 1",
+          "Responsibility 2 for experience 1",
+          "Responsibility 3 for experience 1"
+        ],
+        "logo": "/images/organization-logo-1.png",
+        "content": "🇫🇷 (FR) Next.js React Cloud JavaScript TypeScript JavaScript Architecture Architecture Architecture Architecture.\n\n🇫🇷 (FR) Architecture Cloud React Cloud JavaScript Next.js Cloud React Node.js Cloud.\n\n🇫🇷 (FR) Next.js Node.js React Cloud JavaScript Architecture Cloud React JavaScript Cloud."
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (FR)",
+        "image": "/images/gallery-1.jpg",
+        "category": "Guide",
+        "description": "Project 1 overview in FR.",
+        "date": "2020-01-01",
+        "tags": [
+          "typescript",
+          "javascript"
+        ],
+        "featured": true,
+        "content": "🇫🇷 (FR) JavaScript Node.js React TypeScript Node.js TypeScript JavaScript Next.js Cloud TypeScript.\n\n🇫🇷 (FR) JavaScript TypeScript TypeScript Node.js JavaScript Node.js Node.js Cloud TypeScript React.\n\n🇫🇷 (FR) React Cloud React Cloud Cloud JavaScript Architecture Next.js TypeScript JavaScript."
+      }
+    ],
+    "info": {
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 0,
+          "fullName": "Alex Johnson",
+          "title": "Software Engineer",
+          "summary": "Experienced developer passionate about building scalable systems and mentoring others.",
+          "location": "Berlin, Germany",
+          "dob": "1990-05-12",
+          "photo": "https://example.com/photos/alex.jpg",
+          "content": "NA"
+        }
+      ],
+      "contact": [
+        {
+          "0": {
+            "type": "Email",
+            "value": "alex@example.com",
+            "label": "Work"
+          },
+          "1": {
+            "type": "Phone",
+            "value": "+49 1522 1234567",
+            "label": "Mobile"
+          },
+          "2": {
+            "type": "Website",
+            "value": "https://alexjohnson.dev",
+            "label": "Website"
+          },
+          "3": {
+            "type": "Address",
+            "value": "Berlin, Germany",
+            "description": "Current residence"
+          },
+          "slug": "contact",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "interest": [
+        {
+          "slug": "interest",
+          "order": 0,
+          "items": [
+            "Photography",
+            "Traveling",
+            "Open-source projects",
+            "Reading",
+            "Music",
+            "Sports"
+          ],
+          "content": "NA"
+        }
+      ],
+      "languages": [
+        {
+          "0": {
+            "name": "English",
+            "read": "Fluent",
+            "write": "Fluent",
+            "speak": "Fluent",
+            "listen": "Fluent",
+            "tests": [
+              "IELTS",
+              "TOEFL"
+            ],
+            "level": "C1"
+          },
+          "1": {
+            "name": "German",
+            "read": "Intermediate",
+            "write": "Intermediate",
+            "speak": "Intermediate",
+            "listen": "Intermediate",
+            "tests": [
+              "Goethe B2",
+              "Telc B2"
+            ],
+            "level": "B2"
+          },
+          "2": {
+            "name": "French",
+            "read": "Good",
+            "write": "Good",
+            "speak": "Intermediate",
+            "listen": "Good",
+            "level": "B1"
+          },
+          "slug": "languages",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "reference": [
+        {
+          "0": {
+            "name": "Dr. Laura Schmidt",
+            "position": "Engineering Manager",
+            "organization": "TechCorp GmbH",
+            "email": "laura.schmidt@techcorp.de",
+            "phone": "+49 1522 111222",
+            "relation": "Manager at TechCorp"
+          },
+          "1": {
+            "name": "Prof. John Doe",
+            "position": "Professor of Computer Science",
+            "organization": "University of Hamburg",
+            "email": "j.doe@uni-hamburg.de",
+            "relation": "Thesis Supervisor"
+          },
+          "slug": "reference",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "skills": [
+        {
+          "0": {
+            "category": "Programming",
+            "items": [
+              "Python",
+              "TypeScript",
+              "Java",
+              "C++"
+            ]
+          },
+          "1": {
+            "category": "Tools & Cloud",
+            "items": [
+              "AWS",
+              "Docker",
+              "Kubernetes"
+            ]
+          },
+          "2": {
+            "category": "Soft Skills",
+            "items": [
+              "Leadership",
+              "Communication",
+              "Mentoring"
+            ]
+          },
+          "3": {
+            "category": "Design & Creative",
+            "items": [
+              "Photoshop",
+              "Figma",
+              "Adobe Illustrator"
+            ]
+          },
+          "4": {
+            "category": "Languages",
+            "items": [
+              "English",
+              "German",
+              "French"
+            ]
+          },
+          "slug": "skills",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "social": [
+        {
+          "0": {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/in/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "1": {
+            "platform": "GitHub",
+            "url": "https://github.com/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "2": {
+            "platform": "Twitter",
+            "url": "https://twitter.com/alexjohnson"
+          },
+          "slug": "social",
+          "order": 0,
+          "content": "NA"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Project 1 (FR)",
+        "description": "Project 1 overview in FR.",
+        "technologies": [
+          "TypeScript",
+          "Next.js"
+        ],
+        "link": "https://example.com/projects/1",
+        "github": "https://github.com/user/project-1",
+        "date": "2024-02-26",
+        "image": "/images/project-1.jpg",
+        "status": "in-progress",
+        "featured": true,
+        "content": "🇫🇷 (FR) TypeScript Next.js TypeScript TypeScript Next.js Next.js TypeScript Architecture Next.js JavaScript.\n\n🇫🇷 (FR) Next.js TypeScript Node.js JavaScript JavaScript JavaScript Architecture Cloud Next.js Node.js.\n\n🇫🇷 (FR) Architecture React JavaScript React Architecture Node.js TypeScript Cloud JavaScript Cloud.\n\n🇫🇷 (FR) Cloud Cloud Node.js Architecture JavaScript Architecture Node.js Node.js Next.js Node.js."
+      }
+    ],
+    "publication": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Publication Title 1",
+        "authors": [
+          "Author A1",
+          "Author B1"
+        ],
+        "publisher": "Publisher 1",
+        "date": "2021-06",
+        "link": "https://example.com/publication/1",
+        "doi": "10.1234/example-doi-1",
+        "summary": "This is a brief summary of publication 1 in fr.",
+        "keywords": [
+          "Keyword1",
+          "Keyword2",
+          "Keyword3"
+        ],
+        "media": [
+          "https://example.com/media/pub-1.jpg"
+        ],
+        "content": "NA"
+      }
+    ]
+  },
+  "jp": {
+    "blog": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Blog Post 1 (JP)",
+        "date": "2024-10-16",
+        "author": "Alex Johnson",
+        "excerpt": "A short summary for blog post 1 in JP.",
+        "tags": [
+          "typescript",
+          "javascript"
+        ],
+        "image": "/images/blog-1.jpg",
+        "featured": false,
+        "readTime": 5,
+        "category": "Guide",
+        "content": "JavaScript React TypeScript Architecture Node.js TypeScript React TypeScript TypeScript Architecture.\n\nCloud Cloud React Node.js Node.js React TypeScript Cloud React React.\n\nTypeScript Architecture TypeScript Cloud Cloud TypeScript React React JavaScript Architecture.\n\nReact Node.js TypeScript Architecture Architecture Node.js Next.js Cloud JavaScript JavaScript.\n\nNext.js React TypeScript JavaScript Architecture Node.js React Node.js Cloud Node.js."
+      }
+    ],
+    "certificate": [
+      {
+        "slug": "1",
+        "order": 1,
+        "name": "Certification 1",
+        "organization": "Organization 1",
+        "issueDate": "2021-01",
+        "expirationDate": "2023-01",
+        "credentialId": "CERT-1001",
+        "credentialUrl": "https://example.com/certifications/1",
+        "skills": [
+          "Skill A",
+          "Skill B",
+          "Skill C"
+        ],
+        "media": [
+          "https://example.com/media/cert-1.jpg"
+        ],
+        "description": "Description of certification 1 in jp",
+        "content": "NA"
+      }
+    ],
+    "education": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Education 1 (JP)",
+        "institution": "Humboldt University",
+        "location": "Berlin, Germany",
+        "startDate": "2016-10-01",
+        "endDate": "2018-09-30",
+        "description": "Completed a degree in Computer Science with focus on Artificial Intelligence.",
+        "logo": "/images/education-1.png",
+        "degree": "Diploma",
+        "grade": "1.7",
+        "featured": false,
+        "content": "JavaScript Node.js Architecture JavaScript Cloud JavaScript Architecture JavaScript JavaScript JavaScript.\n\nCloud Node.js Cloud JavaScript Next.js Architecture React React JavaScript React.\n\nArchitecture Architecture Architecture Next.js Next.js Architecture Node.js Architecture JavaScript JavaScript."
+      }
+    ],
+    "experience": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (JP)",
+        "organization": "Tech Corp 1",
+        "location": "Berlin, Germany",
+        "current": false,
+        "startDate": "2020-01-01",
+        "endDate": "2024-01-01",
+        "website": "https://company1.com",
+        "technologies": [
+          "Node.js",
+          "React"
+        ],
+        "description": "Led development team for Tech Corp 1.",
+        "responsibilities": [
+          "Responsibility 1 for experience 1",
+          "Responsibility 2 for experience 1",
+          "Responsibility 3 for experience 1"
+        ],
+        "logo": "/images/organization-logo-1.png",
+        "content": "Architecture React Cloud Next.js React Node.js TypeScript TypeScript Cloud React.\n\nTypeScript Next.js Architecture Next.js TypeScript Node.js React Architecture Next.js React.\n\nCloud Architecture Architecture Architecture Architecture TypeScript TypeScript Architecture Cloud Cloud."
+      }
+    ],
+    "gallery": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Senior Developer 1 (JP)",
+        "image": "/images/gallery-1.jpg",
+        "category": "Opinion",
+        "description": "Project 1 overview in JP.",
+        "date": "2020-01-01",
+        "tags": [
+          "javascript",
+          "tech"
+        ],
+        "featured": true,
+        "content": "Node.js Next.js TypeScript JavaScript Node.js Architecture Cloud Node.js React JavaScript.\n\nTypeScript Architecture JavaScript Node.js TypeScript JavaScript JavaScript Architecture Cloud TypeScript.\n\nNext.js Next.js Node.js Node.js JavaScript Cloud Architecture Node.js Next.js Next.js."
+      }
+    ],
+    "info": {
+      "bio": [
+        {
+          "slug": "bio",
+          "order": 0,
+          "fullName": "Alex Johnson",
+          "title": "Software Engineer",
+          "summary": "Experienced developer passionate about building scalable systems and mentoring others.",
+          "location": "Berlin, Germany",
+          "dob": "1990-05-12",
+          "photo": "https://example.com/photos/alex.jpg",
+          "content": "NA"
+        }
+      ],
+      "contact": [
+        {
+          "0": {
+            "type": "Email",
+            "value": "alex@example.com",
+            "label": "Work"
+          },
+          "1": {
+            "type": "Phone",
+            "value": "+49 1522 1234567",
+            "label": "Mobile"
+          },
+          "2": {
+            "type": "Website",
+            "value": "https://alexjohnson.dev",
+            "label": "Website"
+          },
+          "3": {
+            "type": "Address",
+            "value": "Berlin, Germany",
+            "description": "Current residence"
+          },
+          "slug": "contact",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "interest": [
+        {
+          "slug": "interest",
+          "order": 0,
+          "items": [
+            "Photography",
+            "Traveling",
+            "Open-source projects",
+            "Reading",
+            "Music",
+            "Sports"
+          ],
+          "content": "NA"
+        }
+      ],
+      "languages": [
+        {
+          "0": {
+            "name": "English",
+            "read": "Fluent",
+            "write": "Fluent",
+            "speak": "Fluent",
+            "listen": "Fluent",
+            "tests": [
+              "IELTS",
+              "TOEFL"
+            ],
+            "level": "C1"
+          },
+          "1": {
+            "name": "German",
+            "read": "Intermediate",
+            "write": "Intermediate",
+            "speak": "Intermediate",
+            "listen": "Intermediate",
+            "tests": [
+              "Goethe B2",
+              "Telc B2"
+            ],
+            "level": "B2"
+          },
+          "2": {
+            "name": "French",
+            "read": "Good",
+            "write": "Good",
+            "speak": "Intermediate",
+            "listen": "Good",
+            "level": "B1"
+          },
+          "slug": "languages",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "reference": [
+        {
+          "0": {
+            "name": "Dr. Laura Schmidt",
+            "position": "Engineering Manager",
+            "organization": "TechCorp GmbH",
+            "email": "laura.schmidt@techcorp.de",
+            "phone": "+49 1522 111222",
+            "relation": "Manager at TechCorp"
+          },
+          "1": {
+            "name": "Prof. John Doe",
+            "position": "Professor of Computer Science",
+            "organization": "University of Hamburg",
+            "email": "j.doe@uni-hamburg.de",
+            "relation": "Thesis Supervisor"
+          },
+          "slug": "reference",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "skills": [
+        {
+          "0": {
+            "category": "Programming",
+            "items": [
+              "Python",
+              "TypeScript",
+              "Java",
+              "C++"
+            ]
+          },
+          "1": {
+            "category": "Tools & Cloud",
+            "items": [
+              "AWS",
+              "Docker",
+              "Kubernetes"
+            ]
+          },
+          "2": {
+            "category": "Soft Skills",
+            "items": [
+              "Leadership",
+              "Communication",
+              "Mentoring"
+            ]
+          },
+          "3": {
+            "category": "Design & Creative",
+            "items": [
+              "Photoshop",
+              "Figma",
+              "Adobe Illustrator"
+            ]
+          },
+          "4": {
+            "category": "Languages",
+            "items": [
+              "English",
+              "German",
+              "French"
+            ]
+          },
+          "slug": "skills",
+          "order": 0,
+          "content": "NA"
+        }
+      ],
+      "social": [
+        {
+          "0": {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/in/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "1": {
+            "platform": "GitHub",
+            "url": "https://github.com/alexjohnson",
+            "username": "alexjohnson"
+          },
+          "2": {
+            "platform": "Twitter",
+            "url": "https://twitter.com/alexjohnson"
+          },
+          "slug": "social",
+          "order": 0,
+          "content": "NA"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "My Project 1 (JP)",
+        "description": "Project 1 overview in JP.",
+        "technologies": [
+          "React",
+          "TypeScript"
+        ],
+        "link": "https://example.com/projects/1",
+        "github": "https://github.com/user/project-1",
+        "date": "2024-07-28",
+        "image": "/images/project-1.jpg",
+        "status": "completed",
+        "featured": false,
+        "content": "TypeScript Node.js Node.js Node.js Next.js Cloud JavaScript Cloud Node.js TypeScript.\n\nArchitecture Node.js Next.js Node.js Architecture React Architecture Next.js Architecture Architecture.\n\nTypeScript React TypeScript React Next.js JavaScript TypeScript JavaScript JavaScript Architecture.\n\nTypeScript React JavaScript JavaScript Architecture Cloud React TypeScript Architecture TypeScript."
+      }
+    ],
+    "publication": [
+      {
+        "slug": "1",
+        "order": 1,
+        "title": "Publication Title 1",
+        "authors": [
+          "Author A1",
+          "Author B1"
+        ],
+        "publisher": "Publisher 1",
+        "date": "2021-06",
+        "link": "https://example.com/publication/1",
+        "doi": "10.1234/example-doi-1",
+        "summary": "This is a brief summary of publication 1 in jp.",
         "keywords": [
           "Keyword1",
           "Keyword2",
